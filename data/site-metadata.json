@@ -1,0 +1,39 @@
+{
+  "title": "AKASH TRIPATHI - Full Stack Web Engineer",
+  "description": "Portfolio of Akash Tripathi - Full Stack Web Engineer building full-stack web products end to end: React & Next.js front ends, Node & Python APIs, and cloud deployment.",
+  "author": "Akash Tripathi",
+  "siteUrl": "https://portfolio.example.com",
+  "themeColor": "#1b2028",
+  "keywords": [
+    "Full Stack Web Engineer",
+    "Full Stack Developer",
+    "React",
+    "Next.js",
+    "Node.js",
+    "TypeScript",
+    "Web Development",
+    "Portfolio",
+    "Akash Tripathi"
+  ],
+  "openGraph": {
+    "title": "AKASH TRIPATHI - Full Stack Web Engineer",
+    "description": "Portfolio of Akash Tripathi - Full Stack Web Engineer building full-stack web products end to end: React & Next.js front ends, Node & Python APIs, and cloud deployment.",
+    "type": "website",
+    "locale": "en_US",
+    "siteName": "Akash Tripathi Portfolio"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "creator": "@akash_tripathi"
+  },
+  "person": {
+    "name": "Akash Tripathi",
+    "jobTitle": "Full Stack Web Engineer",
+    "sameAs": [
+      "https://www.instagram.com/akashh_tripathii/?hl=en",
+      "https://www.linkedin.com/in/akash-tripathi-b18901263/",
+      "https://github.com/akash1723tripathi",
+      "https://leetcode.com/u/_AKASH_TRiPATHi_1723/"
+    ]
+  }
+}

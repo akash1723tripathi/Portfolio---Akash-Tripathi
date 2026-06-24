@@ -1,0 +1,54 @@
+{
+  "mainLinks": [
+    {
+      "id": "work",
+      "label": "Work",
+      "href": "#projects",
+      "description": "Selected projects and case studies"
+    },
+    {
+      "id": "about",
+      "label": "About",
+      "href": "/about",
+      "description": "The story behind the craft"
+    },
+    {
+      "id": "services",
+      "label": "Services",
+      "href": "#services",
+      "description": "Expert solutions for your needs"
+    },
+    {
+      "id": "contact",
+      "label": "Contact",
+      "href": "#contact",
+      "description": "Start a conversation today"
+    }
+  ],
+  "socialLinks": [
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "href": "https://www.instagram.com/akashh_tripathii/?hl=en",
+      "platform": "instagram"
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/akash-tripathi-b18901263/",
+      "platform": "linkedin"
+    },
+    {
+      "id": "github",
+      "label": "GitHub",
+      "href": "https://github.com/akash1723tripathi",
+      "platform": "github"
+    },
+    {
+      "id": "leetcode",
+      "label": "LeetCode",
+      "href": "https://leetcode.com/u/_AKASH_TRiPATHi_1723/",
+      "platform": "leetcode"
+    }
+  ]
+}

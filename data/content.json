@@ -1,0 +1,453 @@
+{
+  "about": {
+    "label": "About",
+    "verbs": ["Design it.", "Build it.", "Ship it.", "Run it."],
+    "lede": "Akash Tripathi builds web products end to end, from the interface to the containers it runs in.",
+    "meta": ["Builds independently", "Full Stack Web Engineer", "Currently building TASKTROX"],
+    "bio": [
+      "I am **Akash Tripathi**, a full stack web engineer who builds products end to end. The design in Figma, the interface in React and Vue, the services behind it, and the infrastructure it all runs on.",
+      "I work full time as a **full stack engineer**, and I build my own products independently. Right now that is TASKTROX, an internal operations platform I built end to end. Before it, production work for clients across travel, healthcare and industrial safety.",
+      "The throughline never changes: **ship the real thing, not a mockup.** Accessible by default, fast, and built to scale past launch."
+    ],
+    "_cvNote": "All CV data is REAL (provided by Mohed; French sources translated to English). The /about page reads the unified, de-duplicated `credentials` array (degrees carry their RNCP state titles as `titles` so nothing is listed twice). The legacy `education` + `certifications` arrays are kept ONLY for the unmounted home About exploration variants and can be deleted once those are pruned. The bio paragraphs are grounded in known facts.",
+    "experience": [
+      {
+        "role": "Full Stack Developer",
+        "org": "LMS Factory",
+        "kind": "Full-time",
+        "period": "April 2021 → Present",
+        "summary": "Building Moodle LMS plugins and themes in PHP, and the data architecture behind them.",
+        "points": [
+          "Built LMS (Moodle) plugins in PHP",
+          "Built Moodle themes in PHP, CSS and JavaScript",
+          "Designed the architecture and logic to manage data in the MySQL database",
+          "Wrote complex SQL queries"
+        ],
+        "tags": ["PHP", "Moodle", "MySQL", "CSS", "JavaScript"],
+        "placeholder": false
+      },
+      {
+        "role": "Front-End Developer",
+        "org": "CIAGE",
+        "kind": "Internship",
+        "period": "Feb 2020 → March 2020",
+        "summary": "Front-end websites in Bootstrap and JavaScript, plus reusable component libraries.",
+        "points": [
+          "Built front-end websites with Bootstrap and JavaScript",
+          "Helped create fully reusable code and libraries for future use",
+          "Got up to speed on the company intranet"
+        ],
+        "tags": ["Bootstrap", "JavaScript", "HTML / CSS"],
+        "placeholder": false
+      }
+    ],
+    "credentials": [
+      {
+        "period": "2025 → Present",
+        "credential": "Master 1, Web Engineering",
+        "institution": "ESGI · Paris",
+        "kind": "Degree",
+        "status": "In progress",
+        "points": [
+          "Frameworks Vue.js, Nuxt.js, Node.js and Symfony",
+          "Advanced DevOps: Docker, CI/CD, testing and telemetry",
+          "Web security, authentication protocols and server administration",
+          "UX and accessibility, SASS and TailwindCSS, plus Go and Agile Scrum"
+        ]
+      },
+      {
+        "period": "2024 → 2025",
+        "credential": "Bachelor, Web Engineering",
+        "institution": "ESGI · Paris",
+        "kind": "Degree",
+        "titles": [
+          { "label": "Application & Software Solutions Developer", "ref": "RNCP Level 6" }
+        ],
+        "points": [
+          "Development in PHP, JavaScript and TypeScript with Laravel",
+          "Docker, Git and Linux infrastructure",
+          "Relational database design, SQL and design patterns",
+          "Web design in Figma, project management and generative AI"
+        ]
+      },
+      {
+        "period": "2023",
+        "credential": "French Language Program",
+        "institution": "CAVILAM · Alliance Française",
+        "kind": "Course"
+      },
+      {
+        "period": "2020 → 2021",
+        "credential": "Bac+2, Web & Mobile Developer",
+        "institution": "WebForce3 · Les Mureaux",
+        "kind": "Degree",
+        "titles": [
+          { "label": "Web & Web Mobile Developer", "ref": "Titre Pro · RNCP Level 5" },
+          { "label": "Web Integration Techniques", "ref": "WebForce3" }
+        ],
+        "points": [
+          "Front-end integration",
+          "Building APIs in Symfony",
+          "Object-oriented programming and algorithms",
+          "Conceptual data modelling"
+        ]
+      },
+      {
+        "period": "2019 → 2020",
+        "credential": "École de la Deuxième Chance",
+        "institution": "Magnanville",
+        "kind": "Foundation",
+        "points": [
+          "French language and mathematics",
+          "Computing languages: HTML, CSS, JS (beginner)"
+        ]
+      }
+    ],
+    "certifications": [
+      { "name": "Application & Software Solutions Developer", "issuer": "ESGI · RNCP Level 6", "year": "2025", "placeholder": false },
+      { "name": "French Language Program", "issuer": "CAVILAM · Alliance Française", "year": "2023", "placeholder": false },
+      { "name": "Professional Title, Web & Web Mobile Developer", "issuer": "WebForce3 · RNCP Level 5", "year": "2021", "placeholder": false },
+      { "name": "Web Integration Techniques", "issuer": "WebForce3", "year": "2021", "placeholder": false }
+    ],
+    "education": [
+      {
+        "credential": "Master 1, Web Engineering",
+        "institution": "ESGI · Paris",
+        "period": "2025 → Present",
+        "points": [
+          "Frameworks Vue.js, Nuxt.js, Node.js and Symfony",
+          "Advanced DevOps: Docker, CI/CD, testing and telemetry",
+          "Web security, authentication protocols and server administration",
+          "UX and accessibility, SASS and TailwindCSS, plus Go and Agile Scrum"
+        ],
+        "placeholder": false
+      },
+      {
+        "credential": "Bachelor, Web Engineering",
+        "institution": "ESGI · Paris",
+        "period": "2024 → 2025",
+        "points": [
+          "Development in PHP, JavaScript and TypeScript with Laravel",
+          "Docker, Git and Linux infrastructure",
+          "Relational database design, SQL and design patterns",
+          "Web design in Figma, project management and generative AI"
+        ],
+        "placeholder": false
+      },
+      {
+        "credential": "Bac+2, Web & Mobile Developer",
+        "institution": "WebForce3",
+        "period": "2020 → 2021",
+        "points": [
+          "Front-end integration",
+          "Building APIs in Symfony",
+          "Object-oriented programming and algorithms",
+          "Conceptual data modelling"
+        ],
+        "placeholder": false
+      },
+      {
+        "credential": "École de la Deuxième Chance",
+        "institution": "Magnanville",
+        "period": "2019 → 2020",
+        "points": [
+          "French language and mathematics",
+          "Computing languages: HTML, CSS, JS (beginner)"
+        ],
+        "placeholder": false
+      }
+    ]
+  },
+  "hero": {
+    "firstName": "AKASH",
+    "lastName": "TRIPATHI",
+    "title": "Full Stack Web Engineer",
+    "tagline": [
+      "I",
+      "design",
+      "& build",
+      "full-stack",
+      "web",
+      "<br>",
+      "products",
+      "that",
+      "ship",
+      "& scale."
+    ],
+    "taglineHidden": [
+      "I",
+      "design",
+      "it,",
+      "build",
+      "it,",
+      "ship",
+      "it,",
+      "then",
+      "<br>",
+      "keep",
+      "the",
+      "whole",
+      "thing",
+      "running."
+    ]
+  },
+  "skills": {
+    "marqueeItems": [
+      "FULL STACK",
+      "API DESIGN",
+      "DATABASES",
+      "DEVOPS",
+      "AI INTEGRATION"
+    ],
+    "separator": "✦"
+  },
+  "welcomeScreen": {
+    "greetings": ["नमस्ते", "Hello", "Bonjour", "Hallo", "Ola", "سلام"],
+    "initials": {
+      "first": "A",
+      "last": "T"
+    },
+    "greetingDuration": 400,
+    "totalGreetingTime": 2400
+  },
+  "ui": {
+    "buttons": {
+      "menu": "Menu",
+      "close": "Close",
+      "back": "Back"
+    }
+  },
+  "philosophy": {
+    "label": "Approach & Vision",
+    "statement": "Real problems deserve real solutions, engineered to serve people and move them closer to their goals.",
+    "highlights": ["problems", "solutions", "people", "goals"]
+  },
+  "workflow": {
+    "label": "How I work",
+    "stops": [
+      {
+        "name": "Discover",
+        "title": "Listen first.",
+        "copy": "Before I touch code, I work out who it's for and what done actually means. Half the job is asking sharper questions than the brief did.",
+        "emphasis": "done",
+        "accent": "teal"
+      },
+      {
+        "name": "Define",
+        "title": "Find the angle.",
+        "copy": "Most products try to say five things and land none. I find the one idea worth keeping and build everything around it, so people remember it after the tab closes.",
+        "emphasis": "one idea",
+        "accent": "red"
+      },
+      {
+        "name": "Design",
+        "title": "Prototype, don't guess.",
+        "copy": "I design and prototype the hard interactions in Figma while they're still cheap to change. If it doesn't feel right as a prototype, it won't feel right shipped.",
+        "emphasis": "cheap to change",
+        "accent": "orange"
+      },
+      {
+        "name": "Build",
+        "title": "Build it for real.",
+        "copy": "This is where I'm strongest. Production UI in React, Vue, Next or Nuxt, typed end to end, accessible by default, fast on a mid-range phone, with motion that actually holds 60fps.",
+        "emphasis": "60fps",
+        "accent": "gold"
+      },
+      {
+        "name": "Refine",
+        "title": "Sweat the last ten.",
+        "copy": "The last 10% is the part people actually feel: how it behaves when something breaks, the bug I kill before anyone hits it. I'd rather spend an extra week here than ship something almost right.",
+        "emphasis": "almost right",
+        "accent": "teal"
+      }
+    ]
+  },
+  "services": {
+    "label": "Services & Toolkit",
+    "headline": { "lead": "One drum,", "accent": "four faces." },
+    "intro": "The drum is <b>asleep</b> until you scroll it into view — that's when the first face portals in. Keep scrolling and the next faces swap in the same way.",
+    "faces": [
+      {
+        "word": "INTERFACES.",
+        "rail": "INTERFACES",
+        "label": "Currently · Interfaces & UI",
+        "copy": "<b>Interfaces.</b> Production UI in React and Next.js typed end to end, accessible by default, animated with restraint. Scroll-tied motion, design-to-code in Figma, and component work that ships at 60 fps.",
+        "tools": [
+          "Next.js",
+          "React.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "GSAP",
+          "Framer Motion",
+          "Three.js"
+        ]
+      },
+      {
+        "word": "SYSTEMS.",
+        "rail": "SYSTEMS",
+        "label": "Currently · Systems & APIs",
+        "copy": "<b>Systems & APIs.</b> REST endpoints, real-time sockets, auth pipelines, and the background jobs that hold a product together. Node and Express services backed by PostgreSQL, MongoDB, Prisma, and a clear data model.",
+        "tools": [
+          "Node.js",
+          "Golang",
+          "Express.js",
+          "Socket.io",
+          "PostgreSQL",
+          "MongoDB",
+          "Prisma",
+          "Redis"
+        ]
+      },
+      {
+        "word": "INFRA.",
+        "rail": "INFRA",
+        "label": "Currently · Infrastructure & Cloud",
+        "copy": "<b>Infrastructure.</b> Dockerised services, cloud deployments that don't wake anyone up, and storage pipelines that stay clean under load. AWS and Azure for the runtime; GitHub for the path that gets you there.",
+        "tools": [
+          "Docker",
+          "Kubernetes",
+          "AWS",
+          "Azure",
+          "GitHub Actions"
+        ]
+      },
+      {
+        "word": "MISC.",
+        "rail": "MISC",
+        "label": "Currently · Dev Tools & Platforms",
+        "copy": "<b>Miscellaneous.</b> The cross-cutting layer that doesn't fit a diagram but still ships the product — auth, payments, realtime infra, and the dev tools that catch bugs before users do.",
+        "tools": [
+          "Git",
+          "GitHub",
+          "Stripe",
+          "Clerk",
+          "Cloudinary",
+          "Postman",
+          "n8n",
+          "Inngest"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "label": "Selected Works",
+    "items": [
+      {
+        "id": "tasktrox",
+        "title": "TASKTROX",
+        "image": "/images/projects/tasktrox/Hero.webp",
+        "year": "2024",
+        "category": "SAAS PLATFORM",
+        "badge": "VIEW<br>CASE",
+        "themeColor": "#e6f2ff",
+        "badgeColor": "#FFB800",
+        "badgeTextColor": "#1b2028",
+        "badgeShadowColor": "#1b2028",
+        "featured": true
+      },
+      {
+        "id": "travara",
+        "title": "TRAVARA",
+        "image": "/images/work/travara/01-hero.webp",
+        "year": "2025",
+        "category": "TRAVEL PLATFORM",
+        "badge": "VIEW<br>CASE",
+        "themeColor": "#fff4e6",
+        "badgeColor": "#ff990a",
+        "badgeTextColor": "#1b2028",
+        "badgeShadowColor": "#1b2028",
+        "featured": true
+      }
+    ]
+  },
+  "archive": {
+    "label": "The Archive",
+    "statement": "What's above is just a selection. The full index holds every project I've designed, built, and shipped.",
+    "highlights": ["index", "built", "shipped"],
+    "metaLeft": "Every line considered",
+    "metaRight": "Every build, shipped",
+    "cta": "See all my work",
+    "ctaHref": "/work2"
+  },
+  "contact": {
+    "row1": {
+      "greeting": "Hey,",
+      "recipient": "Akash",
+      "afterName": "! My name is",
+      "between": "and I am from",
+      "nameLabel": "Your Name",
+      "countryLabel": "Country"
+    },
+    "row2": {
+      "lead": "Let's connect about",
+      "options": [
+        "Full-Time Role",
+        "Freelance / Contract",
+        "Building a Product"
+      ]
+    },
+    "row3": {
+      "lead": "We can talk in more detail at",
+      "emailLabel": "your email",
+      "phoneLabel": "your number",
+      "options": ["WhatsApp", "Email"],
+      "defaultSelected": "Email"
+    },
+    "row4": {
+      "lead": "In short,",
+      "label": "Type your message"
+    },
+    "submit": "Send message",
+    "fallback": {
+      "label": "Or just write me at",
+      "email": "akash.tripathi@example.com"
+    }
+  },
+  "worksIndex": {
+    "topBar": {
+      "mark": "A / T",
+      "breadcrumb": "Index of Works · 2024 → 2026",
+      "lastRevised": "2026 · 05"
+    },
+    "intro": {
+      "eyebrow": "Index of Work",
+      "headline": "works.",
+      "lede": "<b>An index of selected projects, built and shipped, not just mocked up.</b> Hover any one to lock its accent and pause its ticker. Click to step inside."
+    },
+    "legend": {
+      "number": "№",
+      "project": "Project · in motion",
+      "meta": "Discipline · Year"
+    },
+    "end": {
+      "left": "End of index.",
+      "right": "Last revised"
+    },
+    "projects": [
+      {
+        "id": "tasktrox",
+        "title": "tasktrox",
+        "discipline": "Full-Stack · SaaS Platform",
+        "year": 2024,
+        "accent": "#62b6cb",
+        "marqueeDurationSec": 24
+      },
+      {
+        "id": "travara",
+        "title": "travara",
+        "discipline": "Full-Stack · Travel Platform",
+        "year": 2025,
+        "accent": "#ff990a",
+        "marqueeDurationSec": 26
+      },
+      {
+        "id": "emerald-psychiatry",
+        "title": "emerald psychiatry",
+        "discipline": "Front-End · Healthcare Web",
+        "year": 2025,
+        "accent": "#93b99e",
+        "marqueeDurationSec": 27
+      }
+    ]
+  }
+}

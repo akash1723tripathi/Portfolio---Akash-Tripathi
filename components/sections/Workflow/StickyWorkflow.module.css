@@ -1,0 +1,276 @@
+/* ============================================================
+   WORKFLOW · STICKY STACKING CARDS
+   Dark panel with rounded-top corners that slides over the
+   previous section. Cards stack via position:sticky with
+   progressive top offsets. GSAP ScrollTrigger for reveals.
+   ============================================================ */
+
+/* ---- layout wrapper (for overlap reveal) ---- */
+.wrapper {
+  position: relative;
+  z-index: 50;
+  background: transparent;
+}
+
+.wrapper[data-overlap='true'] {
+  margin-top: -60vh;
+  z-index: 60;
+}
+
+/* ---- section wrapper ---- */
+.section {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: clip;
+}
+
+/* ---- inner dark panel (rounded top = overlap reveal) ---- */
+.inner {
+  position: relative;
+  z-index: 20;
+  min-height: 100vh;
+  width: calc(96% + 4% * var(--reveal-progress, 0));
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: clip;
+  border-radius: calc(24px * (1 - var(--reveal-progress, 0)));
+  background: #141820;
+  color: #F4F1EB;
+  padding: clamp(56px, 10vw, 112px) clamp(24px, 5vw, 80px);
+}
+
+/* ---- content column ---- */
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 5vw, 64px);
+  width: 100%;
+}
+
+/* ---- section heading ---- */
+.heading {
+  font-family: var(--font-primary);
+  font-size: clamp(52px, 9vw, 140px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: #F4F1EB;
+  margin: 0;
+  opacity: 0;
+  /* animated by GSAP */
+}
+
+/* ---- subtitle row ---- */
+.subtitleRow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.subtitleLabel {
+  font-family: var(--font-navbar);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: rgba(244, 241, 235, 0.35);
+}
+
+.subtitleText {
+  width: 100%;
+  max-width: 38ch;
+  text-wrap: balance;
+  font-family: var(--font-primary);
+  font-size: clamp(15px, 1.15vw, 18px);
+  font-weight: 500;
+  line-height: 1.65;
+  color: rgba(244, 241, 235, 0.4);
+  margin: 0;
+}
+
+/* ---- cards container ---- */
+.cardsWrap {
+  width: 100%;
+  padding-top: clamp(16px, 3vw, 40px);
+}
+
+.cardsStack {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- sticky stacking card ---- */
+.card {
+  position: sticky;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #141820;
+
+  /* Defaults for mobile */
+  --card-header-height: 80px;
+  --card-top-start: 60px;
+  --card-runway: 120px;
+}
+
+@media (min-width: 768px) {
+  .card {
+    --card-header-height: 90px;
+    --card-top-start: 100px;
+    --card-runway: 160px;
+  }
+}
+
+.card {
+  top: calc(var(--card-top-start) + var(--card-index) * var(--card-header-height));
+  margin-bottom: calc((var(--card-total) - var(--card-index) - 1) * var(--card-runway));
+}
+
+/* ---- card header row ---- */
+.cardHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--card-header-height);
+  padding: 0;
+}
+
+.cardNum {
+  font-family: var(--font-primary);
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 600;
+  color: rgba(244, 241, 235, 0.85);
+}
+
+.cardTitle {
+  font-family: var(--font-primary);
+  font-size: clamp(30px, 5vw, 64px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  color: #F4F1EB;
+  margin: 0;
+  line-height: 1.05;
+  flex: 1;
+  text-align: right;
+  margin-left: 32px;
+}
+
+/* ============================================================
+   PORTAL ANIMATION
+   ============================================================ */
+.portalWord {
+  display: inline-flex;
+}
+
+.portalMask {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  vertical-align: bottom;
+}
+
+.portalLetter {
+  display: inline-block;
+  position: relative;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---- card expanded body ---- */
+.cardBody {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  min-height: 28vh;
+  padding-top: 8px;
+  padding-bottom: 24px;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 12px;
+}
+
+.cardSubHeading {
+  font-family: var(--font-primary);
+  font-size: clamp(18px, 1.6vw, 24px);
+  font-weight: 700;
+  color: #F4F1EB;
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Accent dot before sub-heading */
+.cardSubHeading::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--card-accent, #62B6CB);
+  flex-shrink: 0;
+}
+
+.cardCopy {
+  max-width: 48ch;
+  text-wrap: pretty;
+  font-family: var(--font-primary);
+  font-size: clamp(14px, 1.05vw, 17px);
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(244, 241, 235, 0.45);
+  margin: 0;
+}
+
+/* ---- emphasis word in copy ---- */
+.em {
+  font-weight: 600;
+  font-style: italic;
+  color: var(--card-accent, #62B6CB);
+}
+
+/* ---- responsive: tablet+ ---- */
+@media (min-width: 768px) {
+  .subtitleRow {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 32px;
+  }
+
+  .cardBody {
+    grid-template-columns: repeat(12, 1fr);
+    min-height: 32vh;
+  }
+
+  .cardContent {
+    grid-column: 6 / -1;
+  }
+}
+
+/* ---- responsive: large desktop ---- */
+@media (min-width: 1200px) {
+  .cardBody {
+    min-height: 35vh;
+  }
+}
+
+/* ---- responsive: small mobile ---- */
+@media (max-width: 480px) {
+  .inner {
+    border-radius: 16px 16px 0 0;
+    padding: clamp(40px, 8vw, 56px) clamp(16px, 4vw, 24px);
+  }
+
+  .cardBody {
+    min-height: 24vh;
+  }
+}

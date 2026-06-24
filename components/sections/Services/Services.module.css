@@ -1,0 +1,385 @@
+/* Services & Stack — drum section.
+   Ported from services-stack-drum-v3.html (root reference file).
+   Tokens consumed from styles/variables.css; --color-rule is section-local. */
+
+.wrapper {
+  --color-rule: rgba(27, 32, 40, 0.12);
+  position: relative;
+  z-index: var(--z-above);
+  /* Projects below uses margin-top: -315px (tuned for Philosophy's parallax
+     exit). Absorb that pull so it lands flush with the drum's bottom edge. */
+  margin-bottom: 315px;
+}
+
+.metaLabel {
+  margin: 120px 8% 24px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--color-accent-purple);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.starIcon {
+  width: 1.2em;
+  height: 1.2em;
+  flex-shrink: 0;
+}
+
+.shell {
+  position: relative;
+}
+
+.pin {
+  position: relative;
+  height: 100vh;
+  /* border-top: 1px solid var(--color-primary-text);
+  border-bottom: 1px solid var(--color-primary-text); */
+  overflow: hidden;
+  display: grid;
+  /* bay grows; rail + tools dock to the bottom in fixed-height bands.
+     metaLabel + descript are position:absolute children and do not
+     participate in this row track. */
+  grid-template-rows: 1fr auto auto;
+  /* Transparent so the InteractiveBackground plus-grid shows through. */
+  background: transparent;
+}
+
+/* Meta label inside the pin: top-left, clear of the navbar's hamburger.
+   Static across face changes — content is set once and never repainted. */
+.pin > .metaLabel {
+  position: absolute;
+  top: clamp(72px, 9vh, 110px);
+  left: clamp(24px, 5vw, 74px);
+  margin: 0;
+  z-index: var(--z-above);
+  pointer-events: none;
+}
+
+.rail {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px clamp(24px, 5vw, 48px);
+  /* No top border on the rail — the tools band immediately below has its own
+     thick top border (the "panel" treatment), which doubles as the visual
+     rule above the rail. */
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.now {
+  color: var(--color-primary-text);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent-purple);
+}
+
+.ticks {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+  align-items: center;
+}
+
+.tick {
+  flex: 1;
+  height: 2px;
+  background: var(--color-rule);
+  position: relative;
+  overflow: hidden;
+}
+
+.tick::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: var(--p, 0%);
+  background: var(--color-accent-purple);
+  transition: width 0.6s var(--ease-out-expo);
+}
+
+.bay {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8%;
+  perspective: 1000px;
+}
+
+.bigword {
+  display: flex;
+  align-items: baseline;
+  font-size: clamp(72px, 15vw, 240px);
+  line-height: 0.86;
+  letter-spacing: -0.04rem;
+  font-weight: 700;
+  color: var(--color-primary-text);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.portalMask {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  vertical-align: baseline;
+  line-height: 0.86;
+}
+
+.portalLetter {
+  display: inline-block;
+  position: relative;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.accent {
+  color: var(--color-accent-purple);
+}
+
+/* Tools band — mirrors the SkillsBar (Hero) design:
+   thick top border, solid background panel, full-bleed,
+   horizontally scrolling marquee inside. Font size is intentionally
+   kept smaller than the SkillsBar so it sits at the bottom of the
+   drum without competing with the bigword for visual weight. */
+.tools {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-background);
+  border-top: clamp(3px, 0.4vw, 5px) solid var(--color-primary-text);
+  border-bottom: clamp(3px, 0.4vw, 5px) solid var(--color-primary-text);
+  overflow: hidden;
+  margin-bottom: 30px;
+  /* contain layout/paint so the marquee animation stays GPU-bound and
+     doesn't invalidate the rest of the pin on every frame. */
+  contain: content;
+}
+
+.toolsTrack {
+  display: flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 50px);
+  padding: clamp(16px, 2.2vh, 24px) 0;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  color: var(--color-accent-purple);
+  white-space: nowrap;
+  line-height: 1;
+
+  /* Set by JS (measureToolsScrollWidth) — half the rendered items'
+     width, used by the keyframe below for exact-pixel seamless loop. */
+  --scroll-width: 0px;
+
+  animation: services-tools-scroll 40s linear infinite;
+
+  /* Performance: GPU compositing layer, isolate from layout reads. */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.tool {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.6vw, 22px);
+  flex-shrink: 0;
+}
+
+.glyph {
+  flex-shrink: 0;
+  font-size: clamp(13px, 1.4vw, 20px);
+  letter-spacing: -0.005em;
+  color: inherit;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ttsep {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: clamp(10px, 1.1vw, 14px);
+  height: clamp(10px, 1.1vw, 14px);
+  color: var(--color-accent-purple);
+}
+
+@keyframes services-tools-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(calc(var(--scroll-width) * -1), 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Defense in depth: useReducedMotion() in Services.tsx already swaps to
+     <StaticServices /> for reduced-motion users, but during the SSR→client
+     transition there's a single frame where <DrumServices /> hydrates with
+     .toolsTrack in the DOM. This rule suppresses the marquee for that frame. */
+  .toolsTrack {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* Description card inside the pin: bottom-right, clear of the rail +
+   tools band that dock below. Copy is right-aligned so the label and
+   paragraph trail off toward the screen edge. */
+.descript {
+  position: absolute;
+  right: clamp(24px, 5vw, 74px);
+  /* Clear of rail (~40px) + tools band (~80px) + tools margin-bottom (30px). */
+  bottom: clamp(150px, 18vh, 210px);
+  max-width: min(38ch, 40vw);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+  z-index: var(--z-above);
+  pointer-events: none;
+}
+
+/* Visually hidden but exposed to assistive technology. Used for the
+   aria-live status that announces face changes to screen readers. */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Static stacked fallback rendered instead of the pinned drum when the
+   user prefers reduced motion or is on a coarse-pointer / small-screen
+   device. No scroll hijack, no GSAP — every face is visible in flow. */
+.stack {
+  display: grid;
+  gap: 64px;
+  padding: 24px 8% 96px;
+}
+
+.stackCard {
+  border-top: 1px solid var(--color-primary-text);
+  padding-top: 32px;
+  display: grid;
+  gap: 16px;
+}
+
+.stackHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.stackHead strong {
+  color: var(--color-primary-text);
+  font-weight: 700;
+}
+
+.stackWord {
+  font-size: clamp(56px, 12vw, 160px);
+  line-height: 0.9;
+  letter-spacing: -0.04rem;
+  font-weight: 700;
+  color: var(--color-primary-text);
+  white-space: nowrap;
+}
+
+.stackWord .accent {
+  color: var(--color-accent-purple);
+}
+
+.stackTools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: clamp(13px, 1.4vw, 16px);
+  color: var(--color-primary-text);
+}
+
+.stackTool::after {
+  content: "·";
+  margin-left: 14px;
+  color: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+.stackTool:last-child::after {
+  content: "";
+  margin-left: 0;
+}
+
+.stackCopy {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--color-text-muted-strong);
+  max-width: 60ch;
+}
+
+.stackCopy :global(b) {
+  color: var(--color-primary-text);
+  font-weight: 600;
+}
+
+.which {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.which::before {
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: currentColor;
+}
+
+.copy {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--color-text-muted-strong);
+  max-width: 48ch;
+}
+
+.copy :global(b) {
+  color: var(--color-primary-text);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .glyph {
+    font-size: 11px;
+  }
+}
