@@ -198,7 +198,17 @@ export function AboutPageCurrentProject() {
   return (
     <div ref={containerRef} className={styles.section}>
       <div className={styles.projectSection}>
-        {hasCaseStudy ? (
+        {project.liveUrl ? (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.projectSticky}
+            aria-label={`Open ${project.title} live site`}
+          >
+            {cardInner}
+          </a>
+        ) : hasCaseStudy ? (
           <TransitionLink
             href={`/work/${project.id}`}
             className={styles.projectSticky}

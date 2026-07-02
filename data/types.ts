@@ -180,9 +180,9 @@ export interface AboutContent {
   credentials: CredentialEntry[];
   /** @deprecated Legacy split arrays kept only for the unmounted home About
    *  exploration variants. The /about page reads `credentials` instead. */
-  certifications: CertificationEntry[];
+  certifications?: CertificationEntry[];
   /** @deprecated See `certifications`. */
-  education: EducationEntry[];
+  education?: EducationEntry[];
 }
 
 export interface ServiceFace {
@@ -231,6 +231,8 @@ export interface Project {
   badgeShadowColor?: string;
   /** When true, the project is shown in the home page Projects section. Order-independent. */
   featured?: boolean;
+  /** Direct link to the live project (new tab). */
+  liveUrl?: string;
 }
 
 export interface ProjectsContent {
@@ -250,6 +252,8 @@ export interface WorksIndexProject {
   accent: string;
   /** Marquee scroll duration in seconds (per-row cadence). */
   marqueeDurationSec: number;
+  /** Direct link to the live project (new tab). */
+  liveUrl?: string;
 }
 
 export interface WorksIndexContent {

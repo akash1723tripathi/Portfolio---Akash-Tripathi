@@ -1,45 +1,8 @@
 {
   "username": "mohed-abbas",
-  "total": 1768,
-  "generatedAt": "2026-06-23",
+  "total": 1847,
+  "generatedAt": "2026-07-02",
   "weeks": [
-    [
-      {
-        "date": "2025-06-22",
-        "count": 0,
-        "level": 0
-      },
-      {
-        "date": "2025-06-23",
-        "count": 0,
-        "level": 0
-      },
-      {
-        "date": "2025-06-24",
-        "count": 0,
-        "level": 0
-      },
-      {
-        "date": "2025-06-25",
-        "count": 0,
-        "level": 0
-      },
-      {
-        "date": "2025-06-26",
-        "count": 0,
-        "level": 0
-      },
-      {
-        "date": "2025-06-27",
-        "count": 0,
-        "level": 0
-      },
-      {
-        "date": "2025-06-28",
-        "count": 0,
-        "level": 0
-      }
-    ],
     [
       {
         "date": "2025-06-29",
@@ -1943,8 +1906,53 @@
         "count": 5,
         "level": 1
       },
-      null,
-      null,
+      {
+        "date": "2026-06-24",
+        "count": 2,
+        "level": 1
+      },
+      {
+        "date": "2026-06-25",
+        "count": 2,
+        "level": 1
+      },
+      {
+        "date": "2026-06-26",
+        "count": 1,
+        "level": 1
+      },
+      {
+        "date": "2026-06-27",
+        "count": 12,
+        "level": 1
+      }
+    ],
+    [
+      {
+        "date": "2026-06-28",
+        "count": 15,
+        "level": 1
+      },
+      {
+        "date": "2026-06-29",
+        "count": 5,
+        "level": 1
+      },
+      {
+        "date": "2026-06-30",
+        "count": 0,
+        "level": 0
+      },
+      {
+        "date": "2026-07-01",
+        "count": 33,
+        "level": 2
+      },
+      {
+        "date": "2026-07-02",
+        "count": 9,
+        "level": 1
+      },
       null,
       null
     ]

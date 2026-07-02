@@ -16,9 +16,10 @@ import { AboutPageContributions } from "./Contributions";
 import { AboutPageCredentials } from "./Credentials";
 
 const VITALS = [
-  { label: "Status", primary: "Full time", secondary: "Builds independently" },
+  { label: "Status", primary: "OPEN FOR WORK", secondary: "2026 Graduate" },
   { label: "Discipline", primary: "Full Stack", secondary: "Interface to infrastructure" },
-  { label: "Building", primary: "TASKTROX", secondary: "Internal ops platform" },
+  { label: "Building", primary: "KANBEX", secondary: "Task Management Platform" },
+  { label: "Learning", primary: "AGENTIC AI", secondary: "Innovating AI solutions " },
   { label: "Ships", primary: "Real things", secondary: "Not mockups" },
 ];
 

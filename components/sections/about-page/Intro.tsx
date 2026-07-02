@@ -18,7 +18,6 @@ const basedIn = navigation.location ? navigation.location.replace(/^based in\s*/
 
 const FACTS = [
   { k: "Role", v: content.hero.title },
-  { k: "Mode", v: "Builds independently" },
   ...(basedIn ? [{ k: "Based in", v: basedIn }] : []),
 ];
 

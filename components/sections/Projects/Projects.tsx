@@ -349,26 +349,36 @@ export const Projects = () => {
                  data-last={isLast ? 'true' : undefined}
                  data-first={isFirst ? 'true' : undefined}
                >
-                   {caseStudySlugs.has(project.id) ? (
-                       <TransitionLink
-                         href={`/work/${project.id}`}
-                         className={styles.projectSticky}
-                         aria-label={`Open ${project.title} case study`}
-                         payload={{
-                           accent: project.themeColor,
-                           title: project.title,
-                           slug: project.id,
-                           year: project.year,
-                           category: project.category,
-                         }}
-                       >
-                           {cardInner}
-                       </TransitionLink>
-                   ) : (
-                       <div className={styles.projectSticky}>
-                           {cardInner}
-                       </div>
-                   )}
+                    {project.liveUrl ? (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={styles.projectSticky}
+                          aria-label={`Open ${project.title} live site`}
+                        >
+                            {cardInner}
+                        </a>
+                    ) : caseStudySlugs.has(project.id) ? (
+                        <TransitionLink
+                          href={`/work/${project.id}`}
+                          className={styles.projectSticky}
+                          aria-label={`Open ${project.title} case study`}
+                          payload={{
+                            accent: project.themeColor,
+                            title: project.title,
+                            slug: project.id,
+                            year: project.year,
+                            category: project.category,
+                          }}
+                        >
+                            {cardInner}
+                        </TransitionLink>
+                    ) : (
+                        <div className={styles.projectSticky}>
+                            {cardInner}
+                        </div>
+                    )}
                </div>
            );
        })}

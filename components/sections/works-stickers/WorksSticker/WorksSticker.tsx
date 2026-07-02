@@ -89,6 +89,23 @@ export function WorksSticker({
     </>
   );
 
+  if (project.liveUrl) {
+    return (
+      <a
+        href={project.liveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+        style={style}
+        aria-label={`Open ${project.title} live site`}
+        onMouseEnter={handleEnter}
+        onMouseLeave={handleLeave}
+      >
+        {inner}
+      </a>
+    );
+  }
+
   if (hasCaseStudy) {
     return (
       <TransitionLink

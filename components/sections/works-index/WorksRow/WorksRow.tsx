@@ -57,7 +57,7 @@ export function WorksRow({
       <div className={styles.meta}>
         <span className={styles.discipline}>{project.discipline}</span>
         <span className={styles.year}>{project.year}</span>
-        <span className={styles.arrow}>View case →</span>
+        <span className={styles.arrow}>{project.liveUrl ? 'Visit site ↗' : 'View case →'}</span>
       </div>
     </>
   );
@@ -65,6 +65,24 @@ export function WorksRow({
   // `data-dim` is a string boolean — present + "true" when the row should
   // dim. CSS selector matches `[data-dim='true']`.
   const dataDim = dimmed && !hovered ? 'true' : undefined;
+
+  if (project.liveUrl) {
+    return (
+      <a
+        href={project.liveUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+        style={style}
+        data-dim={dataDim}
+        aria-label={`Open ${project.title} live site`}
+        onMouseEnter={handleEnter}
+        onMouseLeave={handleLeave}
+      >
+        {inner}
+      </a>
+    );
+  }
 
   if (hasCaseStudy) {
     return (
