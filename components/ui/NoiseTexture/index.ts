@@ -1,0 +1,1 @@
+export { NoiseTexture } from './NoiseTexture';
