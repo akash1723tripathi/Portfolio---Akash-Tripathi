@@ -187,14 +187,19 @@ export function Contact() {
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
-    const trimmedEmail = email.trim();
+    const contactVal = email.trim();
 
     // Use the browser's native email validator (type="email" input validity)
     // rather than a hand-rolled regex — it handles edge cases that simple
     // /^\S+@\S+\.\S+$/ patterns miss (missing TLD, IP literals, etc.).
     const inputEl = formRef.current?.querySelector<HTMLInputElement>('input[name="email"]');
-    const emailOk = inputEl ? inputEl.validity.valid && trimmedEmail.length > 0 : trimmedEmail.includes('@');
-    if (!emailOk) {
+    const isWhatsApp = channel === 'WhatsApp';
+
+    const isValid = isWhatsApp
+      ? contactVal.length > 0
+      : (inputEl ? inputEl.validity.valid && contactVal.length > 0 : contactVal.includes('@'));
+
+    if (!isValid) {
       setEmailError(true);
       return;
     }
@@ -208,30 +213,49 @@ export function Contact() {
     // Use the same fallback in both subject and body so they're consistent.
     const resolvedTopic = topic ?? 'New message';
 
-    const subject = encodeURIComponent(`${resolvedTopic} — ${trimmedName || 'A friend'}`);
-    // CRLF is required by RFC 6068; Outlook collapses LF-only into one paragraph.
-    const body = encodeURIComponent(
-      [
+    if (isWhatsApp) {
+      const textLines = [
+        `*${resolvedTopic}*`,
         `Hi ${c.row1.recipient},`,
         '',
         `I'm ${trimmedName || '—'}, reaching out from ${trimmedCountry || '—'}.`,
-        `Topic: ${resolvedTopic}.`,
-        `Best channel: ${channel ?? '—'} (${trimmedEmail || '—'}).`,
+        `Preferred channel: WhatsApp (${contactVal})`,
         '',
         trimmedMessage || '—',
-      ].join('\r\n')
-    );
+      ];
+      const text = encodeURIComponent(textLines.join('\n'));
+      const href = `https://wa.me/918299304338?text=${text}`;
 
-    const href = `mailto:${c.fallback.email}?subject=${subject}&body=${body}`;
+      if (href.length > MAILTO_MAX_LENGTH) {
+        setMailtoLengthError(true);
+        return;
+      }
 
-    // Guard against OS / mail-client URL length limits. A URL that silently
-    // exceeds the limit produces no error and no email — surface it instead.
-    if (href.length > MAILTO_MAX_LENGTH) {
-      setMailtoLengthError(true);
-      return;
+      window.open(href, '_blank');
+    } else {
+      const subject = encodeURIComponent(`${resolvedTopic} — ${trimmedName || 'A friend'}`);
+      // CRLF is required by RFC 6068; Outlook collapses LF-only into one paragraph.
+      const body = encodeURIComponent(
+        [
+          `Hi ${c.row1.recipient},`,
+          '',
+          `I'm ${trimmedName || '—'}, reaching out from ${trimmedCountry || '—'}.`,
+          `Topic: ${resolvedTopic}.`,
+          `Best channel: Email (${contactVal || '—'}).`,
+          '',
+          trimmedMessage || '—',
+        ].join('\r\n')
+      );
+
+      const href = `https://mail.google.com/mail/?view=cm&fs=1&to=${c.fallback.email}&su=${subject}&body=${body}`;
+
+      if (href.length > MAILTO_MAX_LENGTH) {
+        setMailtoLengthError(true);
+        return;
+      }
+
+      window.open(href, '_blank');
     }
-
-    window.location.href = href;
   }
 
   return (
