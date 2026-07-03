@@ -116,7 +116,7 @@
     "separator": "✦"
   },
   "welcomeScreen": {
-    "greetings": ["नमस्ते", "Hello", "Bonjour", "Hallo", "Ola", "سلام"],
+    "greetings": ["नमस्ते", "Hello"],
     "initials": {
       "first": "A",
       "last": "T"
