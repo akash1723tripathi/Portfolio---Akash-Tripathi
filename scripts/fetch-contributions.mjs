@@ -15,7 +15,7 @@ import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
-const USERNAME = 'mohed-abbas';
+const USERNAME = 'akash1723tripathi';
 const API = `https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`;
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
