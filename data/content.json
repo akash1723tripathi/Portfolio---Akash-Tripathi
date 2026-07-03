@@ -133,8 +133,8 @@
   },
   "philosophy": {
     "label": "Approach & Vision",
-    "statement": "Real problems deserve real solutions, engineered to serve people and move them closer to their goals.",
-    "highlights": ["problems", "solutions", "people", "goals"]
+    "statement": "Genuine challenges deserve genuine answers, crafted to serve people and bring them closer to their ambitions.",
+    "highlights": ["challenges", "answers", "people", "ambitions"]
   },
   "workflow": {
     "label": "How I work",
@@ -278,11 +278,11 @@
   },
   "archive": {
     "label": "The Archive",
-    "statement": "What's above is just a selection. The full index holds every project I've designed, built, and shipped.",
-    "highlights": ["index", "built", "shipped"],
-    "metaLeft": "Every line considered",
-    "metaRight": "Every build, shipped",
-    "cta": "See all my work",
+    "statement": "This is just a glimpse. The full archive holds every project I've conceived, built, and launched.",
+    "highlights": ["archive", "built", "launched"],
+    "metaLeft": "Every detail considered",
+    "metaRight": "Every build, delivered",
+    "cta": "Browse all my work",
     "ctaHref": "/work2"
   },
   "contact": {

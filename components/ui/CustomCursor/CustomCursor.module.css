@@ -3,7 +3,6 @@
    - Over white background → appears dark
    - Over dark text → appears light (inverted)
    - Smooth animations via GSAP
-   - Colorful trailing spheres that burst into main cursor
 */
 
 .cursor {
@@ -44,47 +43,10 @@
     contain: layout style paint;
 }
 
-/* Trail container - no blend mode so colors stay vibrant */
-.trailContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: calc(var(--z-cursor) - 1);
-
-    /* Performance containment */
-    contain: layout style;
-}
-
-/* Individual trail spheres - funky colorful orbs */
-.trailSphere {
-    position: fixed;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    pointer-events: none;
-    will-change: transform;
-    transform: translate(-50%, -50%) translateZ(0);
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-
-    /* PERF: Minimal glow. box-shadow blur composites every transform tick on
-       Firefox; with 4 trail spheres animating at 60fps, 4px was visibly
-       coloring frame budget. 2px keeps the glow perceptible at half the cost. */
-    box-shadow: 0 0 2px currentColor;
-
-    /* Performance containment */
-    contain: layout style;
-}
-
 /* Responsive: Hide custom cursor on touch devices */
 @media (hover: none) and (pointer: coarse) {
     .cursor,
-    .cursorWrapper,
-    .trailContainer,
-    .trailSphere {
+    .cursorWrapper {
         display: none !important;
     }
 }
@@ -92,14 +54,7 @@
 /* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
     .cursor,
-    .cursorWrapper,
-    .trailContainer,
-    .trailSphere {
+    .cursorWrapper {
         transition: none !important;
-    }
-
-    /* Hide trail entirely for reduced motion */
-    .trailSphere {
-        display: none !important;
     }
 }

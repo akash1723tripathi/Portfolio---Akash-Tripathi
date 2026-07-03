@@ -11,6 +11,7 @@ import { useWordLineReveal } from "@/lib/useWordLineReveal";
 import { renderInline } from "@/lib/renderInline";
 import { animationConfig, content, navigation } from "@/data";
 import { SectionLabel } from "@/components/sections/case-study/SectionLabel";
+import Lanyard from "./Lanyard";
 import styles from "./Intro.module.css";
 
 const cs = animationConfig.caseStudy;
@@ -57,6 +58,10 @@ export function AboutPageIntro() {
             {renderInline(paragraph)}
           </p>
         ))}
+      </div>
+
+      <div className={styles.lanyardCol}>
+        <Lanyard />
       </div>
     </section>
   );

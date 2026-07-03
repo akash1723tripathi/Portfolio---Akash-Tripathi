@@ -1,7 +1,10 @@
 /* ABOUT PAGE · Intro — editorial reading column + marginalia. */
 
 .intro {
-  padding: clamp(64px, 10vh, 120px) var(--spacing-nav-side);
+  padding-top: clamp(64px, 10vh, 120px);
+  padding-bottom: clamp(24px, 4vh, 48px);
+  padding-left: var(--spacing-nav-side);
+  padding-right: var(--spacing-nav-side);
   display: grid;
   gap: clamp(20px, 3vw, 48px);
   grid-template-columns:
@@ -52,6 +55,17 @@
 }
 .lede strong { font-weight: 700; }
 
+.lanyardCol {
+  grid-column: col-end / margin-end;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  height: 480px;
+  width: 100%;
+  margin-top: calc(-1 * clamp(64px, 10vh, 120px));
+}
+
 @media (max-width: 1100px) {
   .intro { grid-template-columns: 1fr; gap: 24px; }
   .margin, .col {
@@ -60,6 +74,15 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+  }
+  .lanyardCol {
+    grid-column: 1;
+    max-width: var(--read-col);
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 450px;
+    margin-top: 0;
   }
   .marginInner { flex-direction: row; flex-wrap: wrap; gap: 32px; }
   .eyebrow { flex-basis: 100%; margin: 0 0 4px; }
