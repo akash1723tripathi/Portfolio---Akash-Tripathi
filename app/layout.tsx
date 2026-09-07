@@ -13,6 +13,7 @@ import {
   TransitionStage,
 } from "@/components/transitions";
 import { siteMetadata } from "@/data";
+import { Analytics } from "@vercel/analytics/next";
 
 const doppioOne = Doppio_One({
   weight: "400",
@@ -105,6 +106,7 @@ export default function RootLayout({
             </TransitionProvider>
           </AccentColorProvider>
         </LenisProvider>
+        <Analytics />
       </body>
     </html>
   );
