@@ -107,6 +107,11 @@ export function Navbar() {
     };
   }, [pathname]);
 
+  // Broadcast navbar menu open/close state to global overlay components (e.g. Ollie chatbot)
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent('navbar-menu-change', { detail: { open: isMenuOpen } }));
+  }, [isMenuOpen]);
+
   const toggleMenu = useCallback(() => {
     setIsMenuOpen((prev) => {
       if (!prev) {

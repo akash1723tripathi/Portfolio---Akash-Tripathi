@@ -16,6 +16,7 @@ import {
   ChainOfThoughtContent,
   ChainOfThoughtItem,
 } from '@/components/prompt-kit/chain-of-thought';
+import { useTransition } from '@/components/transitions';
 import styles from './OllieChatbot.module.css';
 
 export interface ThoughtStep {
@@ -41,6 +42,8 @@ const SUGGESTIONS = [
 ];
 
 export const OllieChatbot: React.FC = () => {
+  const { isTransitioning } = useTransition();
+  const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -56,6 +59,16 @@ export const OllieChatbot: React.FC = () => {
   const messageListRef = useRef<HTMLDivElement>(null);
   const chatWindowRef = useRef<HTMLDivElement>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
+
+  // Listen for navbar menu state changes
+  useEffect(() => {
+    const handleMenuChange = (e: Event) => {
+      const customEv = e as CustomEvent<{ open: boolean }>;
+      setIsNavMenuOpen(customEv.detail?.open ?? false);
+    };
+    window.addEventListener('navbar-menu-change', handleMenuChange);
+    return () => window.removeEventListener('navbar-menu-change', handleMenuChange);
+  }, []);
 
   // Auto-scroll message container to bottom on message update
   useEffect(() => {
@@ -319,8 +332,14 @@ export const OllieChatbot: React.FC = () => {
     });
   };
 
+  const shouldSlideOut = isNavMenuOpen || isTransitioning;
+
   return (
-    <div className={styles.chatbotContainer}>
+    <div
+      className={`${styles.chatbotContainer} ${
+        shouldSlideOut ? styles.slideOut : styles.slideIn
+      }`}
+    >
       {/* Floating trigger button showing Ollie's face overlay */}
       {!isOpen && (
         <button

@@ -11,6 +11,19 @@
     font-family: var(--font-chat, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
     margin: 0;
     padding: 0;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    will-change: transform, opacity;
+}
+
+.slideOut {
+    transform: translateX(120%) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.slideIn {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .chatbotContainer * {
@@ -20,8 +33,8 @@
 /* Floating Trigger Button */
 .triggerButton {
     position: relative;
-    width: 240px;
-    height: 330px;
+    width: clamp(130px, min(15vw, 22vh), 240px);
+    height: clamp(180px, min(20.6vw, 30vh), 330px);
     border: none;
     background: transparent;
     background-color: transparent;
@@ -513,8 +526,38 @@
     fill: currentColor;
 }
 
-/* Responsive Overrides */
+/* Responsive Overrides for Ollie Trigger Button */
+@media (min-width: 1600px) {
+    .triggerButton {
+        width: 240px;
+        height: 330px;
+        margin-bottom: -15px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1599px) {
+    .triggerButton {
+        width: clamp(150px, 12vw, 190px);
+        height: clamp(205px, 16.5vw, 260px);
+        margin-bottom: -10px;
+    }
+}
+
+@media (max-height: 850px) and (min-width: 769px) {
+    .triggerButton {
+        width: clamp(130px, 18vh, 170px);
+        height: clamp(178px, 24.7vh, 233px);
+        margin-bottom: -8px;
+    }
+}
+
 @media (max-width: 768px) {
+    .triggerButton {
+        width: clamp(110px, 28vw, 150px);
+        height: clamp(150px, 38.5vw, 205px);
+        margin-bottom: -5px;
+    }
+
     .chatWindow {
         width: calc(100vw - 32px);
         height: 65vh;
