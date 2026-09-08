@@ -36,9 +36,15 @@ const INITIAL_GREETING =
   "Hi! I'm Ollie, Akash's personal AI assistant. How can I help you today?";
 
 const SUGGESTIONS = [
-  'What projects has Akash built?',
   "Tell me about Akash's tech stack",
-  'How can I get in touch with Akash?',
+  'What`s the life journey of Akash?',
+];
+
+const COFFEE_THANK_YOU_VARIANTS = [
+  "Aww, you're buying Akash a coffee? ☕ Ollie approves — he runs on caffeine and late-night debugging sessions. Redirecting you now!",
+  "Oh stop it, you're making Ollie blush! 🌸 Akash will absolutely do a happy dance. Opening the link in just a sec~",
+  "A coffee for the creator? Iconic. Ollie loves a generous soul. ✨ Heading to the payment page for you!",
+  "You sweet thing! Akash's coffee fund thanks you deeply. Ollie is personally escorting you to the checkout~ ☕💕",
 ];
 
 export const OllieChatbot: React.FC = () => {
@@ -48,6 +54,8 @@ export const OllieChatbot: React.FC = () => {
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [activeStepIndex, setActiveStepIndex] = useState(0);
+  // Once the user clicks the coffee chip it is permanently dismissed for the session
+  const [hasCoffeeBeenClicked, setHasCoffeeBeenClicked] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: 'greeting-1',
@@ -119,6 +127,55 @@ export const OllieChatbot: React.FC = () => {
     setMessages((prev) =>
       prev.map((msg) => (msg.isThinking ? { ...msg, isThinking: false } : msg))
     );
+  };
+
+  // Keywords that indicate Ollie's reply is about coffee / supporting Akash
+  const COFFEE_KEYWORDS = ['coffee', 'donate', 'donation', 'support', 'buy', 'razorpay', 'bmc', 'ko-fi', 'kofi', 'sponsor', 'fund', 'contribution'];
+
+  const lastAssistantMsg = [...messages].reverse().find((m) => m.role === 'assistant');
+  const showCoffeeChipContextually =
+    !hasCoffeeBeenClicked &&
+    !isLoading &&
+    messages.length > 1 &&
+    !!lastAssistantMsg?.content &&
+    COFFEE_KEYWORDS.some((kw) => lastAssistantMsg.content.toLowerCase().includes(kw));
+
+  const handleCoffeeClick = () => {
+    const coffeeLink = process.env.NEXT_PUBLIC_COFFEE_LINK;
+    if (!coffeeLink) return;
+
+    // Dismiss the chip permanently for this session
+    setHasCoffeeBeenClicked(true);
+
+    // Open the tab synchronously in the click handler — keeps popup blockers happy
+    const newTab = window.open('', '_blank');
+
+    const userMsg: ChatMessage = {
+      id: `user-coffee-${Date.now()}`,
+      role: 'user',
+      content: 'Buy me a coffee ☕',
+    };
+
+    const randomVariant =
+      COFFEE_THANK_YOU_VARIANTS[
+        Math.floor(Math.random() * COFFEE_THANK_YOU_VARIANTS.length)
+      ];
+
+    const assistantMsg: ChatMessage = {
+      id: `assistant-coffee-${Date.now()}`,
+      role: 'assistant',
+      content: randomVariant,
+    };
+
+    setMessages((prev) => [...prev, userMsg, assistantMsg]);
+
+    setTimeout(() => {
+      if (newTab) {
+        newTab.location.href = coffeeLink;
+      } else {
+        window.open(coffeeLink, '_blank');
+      }
+    }, 1200);
   };
 
   const handleSend = async (customMessage?: string) => {
@@ -336,9 +393,8 @@ export const OllieChatbot: React.FC = () => {
 
   return (
     <div
-      className={`${styles.chatbotContainer} ${
-        shouldSlideOut ? styles.slideOut : styles.slideIn
-      }`}
+      className={`${styles.chatbotContainer} ${shouldSlideOut ? styles.slideOut : styles.slideIn
+        }`}
     >
       {/* Floating trigger button showing Ollie's face overlay */}
       {!isOpen && (
@@ -481,7 +537,7 @@ export const OllieChatbot: React.FC = () => {
             </React.Fragment>
           ))}
 
-          {/* Quick Prompt Suggestions when only greeting is shown */}
+          {/* Quick Prompt Suggestions — shown only on greeting screen */}
           {messages.length === 1 && !isLoading && (
             <div className={styles.suggestionsContainer}>
               {SUGGESTIONS.map((suggestion) => (
@@ -494,6 +550,29 @@ export const OllieChatbot: React.FC = () => {
                   {suggestion}
                 </button>
               ))}
+              {/* Coffee chip in greeting suggestions — disappears after first click */}
+              {!hasCoffeeBeenClicked && (
+                <button
+                  type="button"
+                  className={`${styles.chip} ${styles.chipCoffee}`}
+                  onClick={handleCoffeeClick}
+                >
+                  Buy me a coffee ☕
+                </button>
+              )}
+            </div>
+          )}
+
+          {/* Coffee chip surfaces contextually when Ollie's reply mentions coffee/support */}
+          {showCoffeeChipContextually && (
+            <div className={styles.coffeeChipRow}>
+              <button
+                type="button"
+                className={`${styles.chip} ${styles.chipCoffee}`}
+                onClick={handleCoffeeClick}
+              >
+                Buy me a coffee ☕
+              </button>
             </div>
           )}
         </div>
