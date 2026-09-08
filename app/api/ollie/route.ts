@@ -180,14 +180,16 @@ export async function POST(req: NextRequest) {
       },
     ]
 
-    // 7. Active Gemini models in priority order with automated fallback
+    // 7. Active Gemini models in priority order: fastest/cheapest first, most capable last.
+    //    The generator below probes the first chunk of each model and falls back on any
+    //    quota (429) or unsupported-model error, so visitors always get the quickest
+    //    available model at the time of their request.
     const FALLBACK_MODELS = [
-      'gemini-3.6-flash',
-      'gemini-3.5-flash',
-      'gemini-3.5-flash-lite',
-      'gemini-3.7-flash',
-      'gemini-flash-latest',
-      'gemini-flash-lite-latest',
+      'gemini-3.5-flash-lite', // Fastest & cheapest — lowest latency, try first
+      'gemini-3.1-flash-lite', // Second lightweight backup
+      'gemini-3.6-flash',      // Mid-tier flash
+      'gemini-3.7-flash',      // General-purpose workhorse
+      'gemini-3.8-flash',      // Most capable flash — only if all above fail
     ];
 
     // Helper generator that iterates over active models and yields chunks as they arrive

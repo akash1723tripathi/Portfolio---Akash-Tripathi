@@ -436,6 +436,14 @@
     margin-top: 8px;
 }
 
+/* Contextual coffee chip row — indented to align with assistant bubble text */
+.coffeeChipRow {
+    display: flex;
+    margin-top: 4px;
+    /* avatar (30px) + gap (10px) = same indent as the bubble content */
+    margin-left: 40px;
+}
+
 .chip {
     background: rgba(98, 182, 203, 0.12);
     border: 1px solid rgba(98, 182, 203, 0.3);
@@ -450,6 +458,30 @@
 .chip:hover {
     background: rgba(98, 182, 203, 0.25);
     transform: translateY(-1px);
+}
+
+/* ☕ "Buy me a coffee" chip — warm amber accent, distinct from teal suggestion chips */
+.chipCoffee {
+    background: rgba(251, 146, 60, 0.12);
+    border-color: rgba(251, 146, 60, 0.4);
+    color: var(--color-primary-text);
+    font-weight: 500;
+}
+
+.chipCoffee:hover {
+    background: rgba(251, 146, 60, 0.25);
+    border-color: rgba(251, 146, 60, 0.65);
+    transform: translateY(-1px);
+}
+
+:root[data-theme="dark"] .chipCoffee {
+    background: rgba(251, 146, 60, 0.1);
+    border-color: rgba(251, 146, 60, 0.35);
+}
+
+:root[data-theme="dark"] .chipCoffee:hover {
+    background: rgba(251, 146, 60, 0.22);
+    border-color: rgba(251, 146, 60, 0.55);
 }
 
 /* Prompt Input Footer */
