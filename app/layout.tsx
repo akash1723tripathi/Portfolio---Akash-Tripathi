@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Doppio_One } from "next/font/google";
+import { Doppio_One, Inter } from "next/font/google";
 import "./globals.css";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { BackToTop } from "@/components/ui/BackToTop";
+import { OllieChatbot } from "@/components/ui/OllieChatbot";
 import { AccentColorProvider } from "@/lib/AccentColorContext";
 import { LenisProvider } from "@/lib/LenisProvider";
 import { InteractiveBackground } from "@/components/sections/Hero";
@@ -24,6 +25,13 @@ const doppioOne = Doppio_One({
   // during the welcome→hero handoff, so the font isn't painted at first load.
   // Preloading it buys nothing and triggers Firefox's "preloaded but not used"
   // warning. display:swap still handles the fallback when it does paint.
+  preload: false,
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-chat",
+  display: "swap",
   preload: false,
 });
 
@@ -80,7 +88,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={doppioOne.variable}>
+      <body className={`${doppioOne.variable} ${inter.variable}`}>
         {/* See BOOTSTRAP_SCRIPT above — pre-paint theme + scroll-restoration bootstrap. */}
         <script
           dangerouslySetInnerHTML={{
@@ -101,6 +109,7 @@ export default function RootLayout({
               <CustomCursor />
               <BackToTop />
               <ThemeToggle />
+              <OllieChatbot />
               {children}
               <TransitionStage />
             </TransitionProvider>
