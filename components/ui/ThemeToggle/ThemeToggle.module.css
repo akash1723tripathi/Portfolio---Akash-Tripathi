@@ -1,7 +1,7 @@
 .toggle {
     position: fixed;
-    bottom: 24px;
-    right: 24px;
+    bottom: clamp(90px, 11vh, 125px);
+    left: clamp(24px, 3.5vw, 54px);
     z-index: 150;
 
     display: flex;
@@ -42,7 +42,7 @@
 @media (max-width: 480px) {
     .toggle {
         bottom: 16px;
-        right: 16px;
+        left: var(--spacing-nav-side);
         width: 40px;
         height: 40px;
     }

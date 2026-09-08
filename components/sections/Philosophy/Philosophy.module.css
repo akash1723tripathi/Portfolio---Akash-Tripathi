@@ -7,7 +7,7 @@
   /* Sized to one viewport so the pinned read fills the screen exactly, with
      no empty bottom runway left over. Mirrors Archive's section sizing. */
   min-height: 100vh;
-  padding: 150px 8%;
+  padding: 150px 8% 150px clamp(85px, 9vw, 150px);
   display: flex;
   flex-direction: column;
   /* Center the statement in the pinned viewport so it reads as the focal
@@ -29,19 +29,19 @@
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .section {
-    padding: 120px 6%;
+    padding: 120px 6% 120px clamp(75px, 8vw, 120px);
   }
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: 100px 5%;
+    padding: 100px 5% 100px clamp(70px, 7vw, 100px);
   }
 }
 
 @media (max-width: 480px) {
   .section {
-    padding: 80px 4%;
+    padding: 80px 4% 80px clamp(60px, 6vw, 80px);
   }
 
   .plusIcon {

@@ -1,0 +1,109 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  white-space: nowrap;
+  transition: transform 0.15s ease, background-color 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+}
+
+.button:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-accent-teal, #62b6cb);
+}
+
+/* Variants */
+.variantDefault {
+  background-color: #171717;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+:root[data-theme="dark"] .variantDefault {
+  background-color: #262626;
+  color: #f5f5f5;
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.variantDefault:hover:not(:disabled) {
+  background-color: #000000;
+  transform: scale(1.05);
+}
+
+:root[data-theme="dark"] .variantDefault:hover:not(:disabled) {
+  background-color: #383838;
+}
+
+.variantDefault:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.variantOutline {
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.15);
+  color: inherit;
+}
+
+:root[data-theme="dark"] .variantOutline {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.variantGhost {
+  background-color: transparent;
+  color: inherit;
+}
+
+.variantGhost:hover:not(:disabled) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+:root[data-theme="dark"] .variantGhost:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Sizes */
+.sizeDefault {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 12px;
+}
+
+.sizeSm {
+  height: 30px;
+  padding: 0 12px;
+  font-size: 12px;
+  border-radius: 8px;
+}
+
+.sizeLg {
+  height: 42px;
+  padding: 0 20px;
+  font-size: 15px;
+  border-radius: 14px;
+}
+
+.sizeIcon {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+
+.button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none;
+}

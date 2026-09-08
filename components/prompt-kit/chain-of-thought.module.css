@@ -1,0 +1,204 @@
+/* ── Chain of Thought: Vertical Timeline Layout ── */
+
+.chainOfThought {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    animation: cotFadeIn 0.3s ease-out;
+    padding-left: 4px;
+}
+
+@keyframes cotFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes stepSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ── Step ── */
+.step {
+    position: relative;
+    padding-left: 24px; /* space for the timeline track */
+    padding-bottom: 4px;
+    animation: stepSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Vertical connector line between dots */
+.step::before {
+    content: '';
+    position: absolute;
+    left: 5px; /* centre of the 10px dot */
+    top: 16px; /* starts below the dot */
+    bottom: 0;
+    width: 1.5px;
+    background-color: rgba(0, 0, 0, 0.12);
+    transition: background-color 0.2s ease;
+}
+
+:root[data-theme="dark"] .step::before {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Hide the connector on the last step */
+.step:last-child::before {
+    display: none;
+}
+
+/* ── Timeline Dot ── */
+.step::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #a0a0a0;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+:root[data-theme="dark"] .step::after {
+    background-color: #7a7a7a;
+}
+
+/* Active step – teal pulsing dot */
+.stepActive::after {
+    background-color: var(--color-accent-teal, #62b6cb);
+    box-shadow: 0 0 0 3px rgba(98, 182, 203, 0.2);
+    animation: dotPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+    0%, 100% { box-shadow: 0 0 0 2px rgba(98, 182, 203, 0.15); }
+    50%      { box-shadow: 0 0 0 5px rgba(98, 182, 203, 0.08); }
+}
+
+/* Active step – teal connector */
+.stepActive::before {
+    background-color: rgba(98, 182, 203, 0.35);
+}
+
+/* ── Trigger (clickable step header) ── */
+.trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 3px 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-primary, inherit);
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--color-text-muted, #737373);
+    text-align: left;
+    transition: color 0.15s ease;
+    gap: 6px;
+}
+
+:root[data-theme="dark"] .trigger {
+    color: #b0b0b0;
+}
+
+.stepActive .trigger {
+    color: var(--color-primary-text, #171717);
+}
+
+:root[data-theme="dark"] .stepActive .trigger {
+    color: #e5e5e5;
+}
+
+.trigger:hover {
+    color: var(--color-primary-text, #171717);
+}
+
+:root[data-theme="dark"] .trigger:hover {
+    color: #e5e5e5;
+}
+
+/* Left side of trigger (label text) */
+.triggerLeft {
+    display: flex;
+    align-items: center;
+    gap: 0; /* no icon gap needed — dot is ::after on .step */
+    flex: 1;
+    min-width: 0;
+}
+
+.triggerLeft span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* These icon slots are no longer used in the timeline layout,
+   but we keep them hidden so existing JSX doesn't break. */
+.statusIcon,
+.statusSpinner {
+    display: none;
+}
+
+/* Chevron arrow */
+.chevron {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    color: var(--color-text-muted, #737373);
+    transition: transform 0.2s ease;
+    opacity: 0.7;
+}
+
+.chevronOpen {
+    transform: rotate(180deg);
+}
+
+/* ── Content (expandable items below trigger) ── */
+.content {
+    padding: 2px 0 4px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    animation: cotFadeIn 0.2s ease-out;
+}
+
+/* ── Individual Item ── */
+.item {
+    font-size: 11.5px;
+    line-height: 1.45;
+    color: var(--color-text-muted, #737373);
+    position: relative;
+    padding-left: 14px;
+}
+
+:root[data-theme="dark"] .item {
+    color: #a3a3a3;
+}
+
+.item::before {
+    content: '■';
+    position: absolute;
+    left: 0;
+    font-size: 6px;
+    top: 3px;
+    color: var(--color-text-muted, #737373);
+    opacity: 0.6;
+}
+
+:root[data-theme="dark"] .item::before {
+    color: #a3a3a3;
+}
