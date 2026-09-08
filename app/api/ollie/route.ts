@@ -10,25 +10,6 @@ import { Redis } from '@upstash/redis';
 // Scores below 0.65 indicate that no closely matching knowledge chunk was found.
 const MIN_SIMILARITY_THRESHOLD = 0.65;
 
-// Initialize Upstash Vector Index client
-const index = new Index({
-  url: process.env.UPSTASH_VECTOR_REST_URL!,
-  token: process.env.UPSTASH_VECTOR_REST_TOKEN!,
-});
-
-// Initialize Gemini Client
-const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY!,
-});
-
-// Initialize Rate Limiter (10 requests per minute per IP)
-const ratelimit = new Ratelimit({
-  redis: Redis.fromEnv(),
-  limiter: Ratelimit.slidingWindow(10, '1 m'),
-  analytics: true,
-  prefix: 'ollie_ratelimit',
-});
-
 /**
  * Load System Prompt from /knowledge/system-prompt.md with runtime reading.
  * Includes a full embedded fallback persona in case the file is excluded in serverless builds.
@@ -50,6 +31,15 @@ export interface ChatHistoryMessage {
 
 export async function POST(req: NextRequest) {
   try {
+    // Initialize Rate Limiter (10 requests per minute per IP) at request time.
+    // Avoids build-time crashes when env vars are unavailable during static analysis.
+    const ratelimit = new Ratelimit({
+      redis: Redis.fromEnv(),
+      limiter: Ratelimit.slidingWindow(10, '1 m'),
+      analytics: true,
+      prefix: 'ollie_ratelimit',
+    });
+
     // 1. Per-IP Rate Limiting (10 requests per minute)
     const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
       req.headers.get('x-real-ip') ||
@@ -91,6 +81,15 @@ export async function POST(req: NextRequest) {
     if (!process.env.UPSTASH_VECTOR_REST_URL || !process.env.UPSTASH_VECTOR_REST_TOKEN) {
       return NextResponse.json({ error: 'Upstash Vector environment variables are missing.' }, { status: 500 });
     }
+
+    const ai = new GoogleGenAI({
+      apiKey: process.env.GEMINI_API_KEY,
+    });
+
+    const index = new Index({
+      url: process.env.UPSTASH_VECTOR_REST_URL,
+      token: process.env.UPSTASH_VECTOR_REST_TOKEN,
+    });
 
     // 3. Embed user message using gemini-embedding-001 (768 dimensions) to match index
     let queryVector: number[];
