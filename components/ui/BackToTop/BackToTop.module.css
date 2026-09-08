@@ -9,8 +9,8 @@
 
 .button {
     position: fixed;
-    bottom: 80px;
-    right: 24px;
+    bottom:180px;
+    left: var(--spacing-nav-side);
     z-index: 150;
 
     display: flex;
@@ -67,7 +67,7 @@
 @media (max-width: 480px) {
     .button {
         bottom: 64px;
-        right: 16px;
+        left: var(--spacing-nav-side);
         width: 40px;
         height: 40px;
     }
