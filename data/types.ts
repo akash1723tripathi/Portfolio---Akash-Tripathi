@@ -14,12 +14,21 @@ export interface OpenGraphData {
 export interface TwitterData {
   card: string;
   creator: string;
+  title?: string;
+  description?: string;
 }
 
 export interface PersonData {
   name: string;
   jobTitle: string;
   sameAs: string[];
+  alternateName?: string[];
+  email?: string;
+  url?: string;
+  image?: string;
+  alumniOf?: string;
+  address?: string;
+  knowsAbout?: string[];
 }
 
 export interface SiteMetadata {

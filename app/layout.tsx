@@ -40,17 +40,33 @@ export const metadata: Metadata = {
   title: siteMetadata.title,
   description: siteMetadata.description,
   keywords: siteMetadata.keywords,
-  authors: [{ name: siteMetadata.author }],
+  authors: [{ name: siteMetadata.author, url: siteMetadata.siteUrl }],
+  creator: siteMetadata.author,
+  publisher: siteMetadata.author,
   alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     title: siteMetadata.openGraph.title,
     description: siteMetadata.openGraph.description,
     type: siteMetadata.openGraph.type,
     locale: siteMetadata.openGraph.locale,
     siteName: siteMetadata.openGraph.siteName,
+    url: siteMetadata.siteUrl,
   },
   twitter: {
     card: "summary_large_image",
+    title: siteMetadata.twitter.title ?? siteMetadata.title,
+    description: siteMetadata.twitter.description ?? siteMetadata.description,
     creator: siteMetadata.twitter.creator,
   },
 };
@@ -71,14 +87,45 @@ window.scrollTo(0,0);
 window.__freshLoad=true;
 `;
 
-const personJsonLd = {
+const rootStructuredData = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: siteMetadata.person.name,
-  jobTitle: siteMetadata.person.jobTitle,
-  url: siteMetadata.siteUrl,
-  description: siteMetadata.description,
-  sameAs: siteMetadata.person.sameAs,
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${siteMetadata.siteUrl}/#person`,
+      name: siteMetadata.person.name,
+      alternateName: siteMetadata.person.alternateName,
+      jobTitle: siteMetadata.person.jobTitle,
+      description: siteMetadata.description,
+      url: siteMetadata.siteUrl,
+      image: `${siteMetadata.siteUrl}/opengraph-image`,
+      email: `mailto:${siteMetadata.person.email}`,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Kanpur",
+        addressRegion: "Uttar Pradesh",
+        addressCountry: "IN",
+      },
+      alumniOf: {
+        "@type": "EducationalOrganization",
+        name: siteMetadata.person.alumniOf,
+        url: "https://jssaten.ac.in/",
+      },
+      knowsAbout: siteMetadata.person.knowsAbout,
+      sameAs: siteMetadata.person.sameAs,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteMetadata.siteUrl}/#website`,
+      url: siteMetadata.siteUrl,
+      name: siteMetadata.title,
+      description: siteMetadata.description,
+      publisher: {
+        "@id": `${siteMetadata.siteUrl}/#person`,
+      },
+      inLanguage: "en-US",
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -98,7 +145,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(personJsonLd).replace(/</g, '\\u003c'),
+            __html: JSON.stringify(rootStructuredData).replace(/</g, '\\u003c'),
           }}
         />
         <LenisProvider>

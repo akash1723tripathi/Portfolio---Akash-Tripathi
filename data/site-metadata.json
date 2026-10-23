@@ -1,39 +1,67 @@
 {
-  "title": "AKASH TRIPATHI - Full Stack Web Engineer",
-  "description": "Portfolio of Akash Tripathi - Full Stack Web Engineer building full-stack web products end to end: React & Next.js front ends, Node & Python APIs, and cloud deployment.",
+  "title": "Akash Tripathi | Full Stack Developer & Systems Engineer",
+  "description": "Portfolio of Akash Tripathi, Full Stack Developer & Systems Engineer from India. Building production-grade web products with Next.js, Node.js, Go, and PostgreSQL.",
   "author": "Akash Tripathi",
-  "siteUrl": "https://portfolio.example.com",
+  "siteUrl": "https://akashbuilds.fyi",
   "themeColor": "#1b2028",
   "keywords": [
-    "Full Stack Web Engineer",
+    "Akash Tripathi",
+    "Akash Tripathi Full Stack Developer",
+    "Akash Tripathi India",
+    "Akash Tripathi Kanpur",
     "Full Stack Developer",
+    "Full Stack Web Engineer",
+    "Next.js Developer",
     "React",
     "Next.js",
     "Node.js",
+    "Go",
+    "Golang",
+    "PostgreSQL",
     "TypeScript",
     "Web Development",
-    "Portfolio",
-    "Akash Tripathi"
+    "Portfolio"
   ],
   "openGraph": {
-    "title": "AKASH TRIPATHI - Full Stack Web Engineer",
-    "description": "Portfolio of Akash Tripathi - Full Stack Web Engineer building full-stack web products end to end: React & Next.js front ends, Node & Python APIs, and cloud deployment.",
+    "title": "Akash Tripathi | Full Stack Developer & Systems Engineer",
+    "description": "Portfolio of Akash Tripathi, Full Stack Developer & Systems Engineer from India. Building production-grade web products with Next.js, Node.js, Go, and PostgreSQL.",
     "type": "website",
     "locale": "en_US",
     "siteName": "Akash Tripathi Portfolio"
   },
   "twitter": {
     "card": "summary_large_image",
-    "creator": "@akash_tripathi"
+    "creator": "@akash_tripathi",
+    "title": "Akash Tripathi | Full Stack Developer & Systems Engineer",
+    "description": "Portfolio of Akash Tripathi, Full Stack Developer & Systems Engineer from India. Building production-grade web products with Next.js, Node.js, Go, and PostgreSQL."
   },
   "person": {
     "name": "Akash Tripathi",
-    "jobTitle": "Full Stack Web Engineer",
+    "alternateName": ["Akash", "Akash Tripathi (Full Stack Developer)"],
+    "jobTitle": "Full Stack Developer",
+    "email": "akashtripathi.acad@gmail.com",
+    "url": "https://akashbuilds.fyi",
+    "image": "https://akashbuilds.fyi/opengraph-image",
+    "alumniOf": "JSS Academy of Technical Education, Noida",
+    "address": "Kanpur, Uttar Pradesh, India",
+    "knowsAbout": [
+      "Full Stack Development",
+      "Next.js",
+      "React",
+      "Node.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Go (Golang)",
+      "Redis",
+      "Docker",
+      "Distributed Systems",
+      "AI Product Engineering"
+    ],
     "sameAs": [
-      "https://www.instagram.com/akashh_tripathii/?hl=en",
-      "https://www.linkedin.com/in/akash-tripathi-b18901263/",
       "https://github.com/akash1723tripathi",
-      "https://leetcode.com/u/_AKASH_TRiPATHi_1723/"
+      "https://www.linkedin.com/in/akash-tripathi-b18901263/",
+      "https://leetcode.com/u/_AKASH_TRiPATHi_1723/",
+      "https://www.instagram.com/akashh_tripathii/?hl=en"
     ]
   }
 }
