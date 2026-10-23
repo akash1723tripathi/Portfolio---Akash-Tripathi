@@ -63,17 +63,7 @@
   - Visual editing canvas with document versioning and rollbacks.
   - Tiered subscription billing and quota enforcement using Stripe.
 
-### 3. Tasktrox — Lightweight Project Management for Engineering Teams
-- **Category**: SaaS Project Management
-- **URL**: https://akashbuilds.fyi/work/tasktrox
-- **Stack**: Next.js, Node.js, PostgreSQL, Redis, Docker
-- **Problem**: Small teams face friction and sprawl between complex JIRA setups and disconnected Trello boards.
-- **Architecture**:
-  - End-to-end full-stack SaaS with Prisma relational schema modelling projects, tasks, and role-based permissions.
-  - Sub-300ms response targets with Redis caching on high-frequency dashboard routes.
-  - Accessible, scan-friendly UI aligned to an 8-pt design system.
-
-### 4. CodeRoom — Real-Time Collaborative Coding & Interview Platform
+### 3. CodeRoom — Real-Time Collaborative Coding & Interview Platform
 - **Category**: Real-Time Collaborative System
 - **Live URL**: https://coderoom-frontend.onrender.com/
 - **Stack**: React, WebRTC (SFU architecture), Node.js, Socket.io, Piston API
@@ -82,7 +72,7 @@
   - Multi-cursor shared code editor with remote syntax execution via Piston sandboxed runtime.
   - Authentication and role management via Clerk.
 
-### 5. Channel-X — High-Throughput Real-Time Messaging Architecture
+### 4. Channel-X — High-Throughput Real-Time Messaging Architecture
 - **Category**: Real-Time Messaging
 - **Live URL**: https://channelx.onrender.com/
 - **Stack**: Go, Node.js, WebSocket, Redis Pub/Sub, PostgreSQL
@@ -90,7 +80,7 @@
   - Distributed presence tracking and room-based message broadcasting.
   - Redis Pub/Sub backplane enabling horizontal scaling across multiple socket server instances.
 
-### 6. FinSight AI — Stock Market Forecasting & Financial Sentiment Engine
+### 5. FinSight AI — Stock Market Forecasting & Financial Sentiment Engine
 - **Category**: Machine Learning & Financial Intelligence
 - **Live URL**: https://fin-sight-ai-chi.vercel.app/
 - **Stack**: Python, FinBERT, Ensemble ML, Next.js, FastAPI

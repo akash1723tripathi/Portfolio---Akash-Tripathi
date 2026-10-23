@@ -44,14 +44,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
-    ...getCaseStudySlugs().map((slug) => {
-      const lastModified = caseStudyDate(slug);
-      return {
-        url: `${base}/work/${slug}`,
-        ...(lastModified ? { lastModified } : {}),
-        changeFrequency: 'monthly' as const,
-        priority: 0.7,
-      };
-    }),
+    ...getCaseStudySlugs()
+      .map((slug) => {
+        const lastModified = caseStudyDate(slug);
+        return {
+          url: `${base}/work/${slug}`,
+          ...(lastModified ? { lastModified } : {}),
+          changeFrequency: 'monthly' as const,
+          priority: 0.7,
+        };
+      })
+      .filter((entry) => {
+        if (!entry.lastModified) return false;
+        return entry.lastModified.getFullYear() >= 2026;
+      }),
   ];
 }

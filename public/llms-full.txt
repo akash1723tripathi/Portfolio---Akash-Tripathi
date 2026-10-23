@@ -81,16 +81,7 @@
   - Visual editor with document version history, rollbacks, and branching.
   - Stripe integration for tiered subscriptions, payment webhooks, and quota enforcement.
 
-### Project 3: Tasktrox
-- **Domain**: SaaS Task Tracking
-- **Case Study**: https://akashbuilds.fyi/work/tasktrox
-- **Description**: A streamlined task and team management application built with Next.js, Node.js, and PostgreSQL.
-- **Engineering Highlights**:
-  - Full relational modeling of teams, projects, tasks, and activity logs.
-  - Redis caching for dashboard statistics and hot queries.
-  - Scan-friendly interface adhering to an 8-pt design system with sub-300ms API response targets.
-
-### Project 4: CodeRoom
+### Project 3: CodeRoom
 - **Domain**: Collaborative Coding & Live Technical Interviews
 - **Live URL**: https://coderoom-frontend.onrender.com/
 - **Engineering Highlights**:
@@ -98,14 +89,14 @@
   - Sandboxed remote code execution across multiple languages using Piston API.
   - Multi-user Monaco code editor synchronization.
 
-### Project 5: Channel-X
+### Project 4: Channel-X
 - **Domain**: High-Performance Messaging Engine
 - **Live URL**: https://channelx.onrender.com/
 - **Engineering Highlights**:
   - Real-time chat engine built with Go and Node.js.
   - Redis Pub/Sub distributed message bus to enable horizontal scaling across server processes.
 
-### Project 6: FinSight AI
+### Project 5: FinSight AI
 - **Domain**: Financial Machine Learning & Market Intelligence
 - **Live URL**: https://fin-sight-ai-chi.vercel.app/
 - **Engineering Highlights**:
