@@ -26,13 +26,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteMetadata.siteUrl;
   const worksRevised = worksRevisedDate();
   return [
-    { url: base, ...(worksRevised ? { lastModified: worksRevised } : {}) },
-    { url: `${base}/work2`, ...(worksRevised ? { lastModified: worksRevised } : {}) },
+    {
+      url: base,
+      ...(worksRevised ? { lastModified: worksRevised } : {}),
+      changeFrequency: 'weekly',
+      priority: 1.0,
+    },
+    {
+      url: `${base}/about`,
+      ...(worksRevised ? { lastModified: worksRevised } : {}),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${base}/work2`,
+      ...(worksRevised ? { lastModified: worksRevised } : {}),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
     ...getCaseStudySlugs().map((slug) => {
       const lastModified = caseStudyDate(slug);
       return {
         url: `${base}/work/${slug}`,
         ...(lastModified ? { lastModified } : {}),
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
       };
     }),
   ];

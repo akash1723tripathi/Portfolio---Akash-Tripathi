@@ -10,12 +10,14 @@ export default function Home() {
   return (
     <>
       <WelcomeScreen />
-      <Hero />
-      <Philosophy />
-      <ServicesV2 />
-      <Projects />
-      <Archive />
-      <Contact />
+      <main id="main-content">
+        <Hero />
+        <Philosophy />
+        <ServicesV2 />
+        <Projects />
+        <Archive />
+        <Contact />
+      </main>
     </>
   );
 }

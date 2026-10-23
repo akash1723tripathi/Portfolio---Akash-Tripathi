@@ -29,17 +29,31 @@ export async function generateMetadata({
   const entry = getCaseStudy(slug);
   const canonical = `/work/${slug}`;
   if (entry?.hero) {
+    const title = `${entry.hero.title} · Case Study · Akash Tripathi`;
+    const description = entry.hero.lede;
+    const imageUrl = new URL(entry.hero.image, siteMetadata.siteUrl).toString();
     return {
-      title: `${entry.hero.title} · Case Study · Akash Tripathi`,
-      description: entry.hero.lede,
+      title,
+      description,
       alternates: { canonical },
       openGraph: {
+        title,
+        description,
+        url: `${siteMetadata.siteUrl}${canonical}`,
+        type: 'article',
+        siteName: siteMetadata.openGraph.siteName,
         images: [
           {
-            url: new URL(entry.hero.image, siteMetadata.siteUrl).toString(),
+            url: imageUrl,
             alt: entry.hero.alt,
           },
         ],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title,
+        description,
+        images: [imageUrl],
       },
     };
   }
@@ -57,8 +71,39 @@ export default async function CaseStudyPage({
 
   const nextTarget = entry.nextCase ? caseStudies[entry.nextCase.slug]?.hero : undefined;
 
+  const projectSchema = entry.hero
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'CreativeWork',
+        '@id': `${siteMetadata.siteUrl}/work/${slug}#project`,
+        headline: entry.hero.title,
+        name: entry.hero.title,
+        description: entry.hero.lede,
+        image: new URL(entry.hero.image, siteMetadata.siteUrl).toString(),
+        url: `${siteMetadata.siteUrl}/work/${slug}`,
+        author: {
+          '@id': `${siteMetadata.siteUrl}/#person`,
+        },
+        creator: {
+          '@type': 'Person',
+          name: siteMetadata.person.name,
+          jobTitle: siteMetadata.person.jobTitle,
+          url: siteMetadata.siteUrl,
+        },
+        keywords: entry.hero.pills,
+      }
+    : null;
+
   return (
     <main>
+      {projectSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(projectSchema).replace(/</g, '\\u003c'),
+          }}
+        />
+      )}
       {entry.hero && <Hero {...entry.hero} />}
       {entry.ledger && <Ledger {...entry.ledger} />}
       {entry.context && <Context {...entry.context} />}

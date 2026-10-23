@@ -1,0 +1,120 @@
+# Akash Tripathi - Full Stack Developer & Systems Engineer
+
+> Akash Tripathi is a Full Stack Developer and Systems Engineer from Kanpur, Uttar Pradesh, India, graduating in 2026 with a B.Tech in Computer Science & Engineering (Data Science) from JSS Academy of Technical Education, Noida. He designs and engineers production-grade software across the Next.js, Node.js, Go, PostgreSQL, and Redis ecosystem, specializing in real-time collaboration, distributed architectures, and AI product integration.
+
+## Entity Disambiguation
+"Akash Tripathi" is a common Indian name. This document and portfolio represent:
+- **Akash Tripathi**: Full Stack Developer, Systems Software Engineer, B.Tech CSE Data Science (2022-2026), JSS Academy of Technical Education, Noida.
+- **Hometown**: Kanpur, Uttar Pradesh, India
+- **Portfolio Domain**: https://akashbuilds.fyi
+- **Email**: akashtripathi.acad@gmail.com
+- **GitHub**: https://github.com/akash1723tripathi
+- **LinkedIn**: https://www.linkedin.com/in/akash-tripathi-b18901263/
+- **LeetCode**: https://leetcode.com/u/_AKASH_TRiPATHi_1723/
+*(Distinguished from other individuals named Akash Tripathi, including competitive programmers, senior software engineers, civil servants, and real estate professionals).*
+
+---
+
+## Technical Skills & Specialties
+
+- **Languages**: TypeScript, JavaScript, Go (Golang), Python, SQL (PostgreSQL), HTML5, CSS3.
+- **Frontend**: Next.js (App Router), React 19, Tailwind CSS, GSAP, Three.js, Framer Motion, TanStack Query, Zustand.
+- **Backend & APIs**: Node.js, Express.js, Go HTTP services, RESTful APIs, WebSockets (Socket.io), Server-Sent Events (SSE), WebRTC, gRPC.
+- **Databases & Caching**: PostgreSQL, Prisma ORM, Redis, Upstash Redis, MongoDB, Mongoose, Neon Database.
+- **Cloud & DevOps**: Docker, Docker Compose, Kubernetes, GitHub Actions CI/CD, AWS fundamentals, Azure, Render, Vercel.
+- **AI & LLM Integration**: LLM streaming orchestration, Server-Sent Events token delivery, prompt engineering, FinBERT sentiment analysis, OpenRouter.
+- **Architecture**: Distributed state synchronization, optimistic UI updates, multi-tier audit logging, transactional integrity, rate limiting.
+
+---
+
+## Professional Experience
+
+### Weya.ai — Backend Developer Intern
+- **Period**: March 2026 → May 2026
+- **Stack**: Node.js, Go, PostgreSQL, Prisma, MongoDB, AWS
+- **Summary**:
+  - Engineered a 3-tier audit logging middleware with 4 operational modes (skip, generic, summary, rich) across 30+ classified API routes.
+  - Implemented non-blocking asynchronous writes to PostgreSQL utilizing Prisma atomic transactions.
+  - Contributed to MongoDB to PostgreSQL migration for the platform's core logging subsystem.
+  - Built multi-tenant tracking and audit capabilities for superadmin activity on the Nexus AI voice calling platform.
+
+---
+
+## Featured Projects
+
+### 1. Kanbex — Distributed Real-Time Kanban Platform
+- **Category**: SaaS Productivity Platform
+- **Live URL**: https://kanbex-frontend.onrender.com/
+- **Stack**: React, Next.js, Node.js, PostgreSQL, Redis, Docker
+- **Problem**: Traditional task managers struggle with lag and sync conflicts in fast-moving teams.
+- **Architecture**:
+  - Optimistic UI updates with instant drag-and-drop feedback.
+  - Multi-user real-time state synchronization via WebSocket event streams.
+  - Redis caching for hot workspace queries and session state.
+  - Containerized with Docker and automated via GitHub Actions CI/CD.
+
+### 2. Wizardry AI — AI SaaS Workflow & Visual Generation Platform
+- **Category**: AI Assistant & Generative SaaS
+- **Live URL**: https://wizardryai.onrender.com/
+- **Stack**: Next.js, TypeScript, OpenRouter, Node.js, PostgreSQL, Stripe
+- **Problem**: Many generative AI wrappers lack proper state management, token streaming resilience, and visual workflow control.
+- **Architecture**:
+  - Full LLM orchestration with resilient Server-Sent Events (SSE) token streaming.
+  - Visual editing canvas with document versioning and rollbacks.
+  - Tiered subscription billing and quota enforcement using Stripe.
+
+### 3. Tasktrox — Lightweight Project Management for Engineering Teams
+- **Category**: SaaS Project Management
+- **URL**: https://akashbuilds.fyi/work/tasktrox
+- **Stack**: Next.js, Node.js, PostgreSQL, Redis, Docker
+- **Problem**: Small teams face friction and sprawl between complex JIRA setups and disconnected Trello boards.
+- **Architecture**:
+  - End-to-end full-stack SaaS with Prisma relational schema modelling projects, tasks, and role-based permissions.
+  - Sub-300ms response targets with Redis caching on high-frequency dashboard routes.
+  - Accessible, scan-friendly UI aligned to an 8-pt design system.
+
+### 4. CodeRoom — Real-Time Collaborative Coding & Interview Platform
+- **Category**: Real-Time Collaborative System
+- **Live URL**: https://coderoom-frontend.onrender.com/
+- **Stack**: React, WebRTC (SFU architecture), Node.js, Socket.io, Piston API
+- **Architecture**:
+  - Low-latency peer video and audio feeds coordinated through an SFU architecture.
+  - Multi-cursor shared code editor with remote syntax execution via Piston sandboxed runtime.
+  - Authentication and role management via Clerk.
+
+### 5. Channel-X — High-Throughput Real-Time Messaging Architecture
+- **Category**: Real-Time Messaging
+- **Live URL**: https://channelx.onrender.com/
+- **Stack**: Go, Node.js, WebSocket, Redis Pub/Sub, PostgreSQL
+- **Architecture**:
+  - Distributed presence tracking and room-based message broadcasting.
+  - Redis Pub/Sub backplane enabling horizontal scaling across multiple socket server instances.
+
+### 6. FinSight AI — Stock Market Forecasting & Financial Sentiment Engine
+- **Category**: Machine Learning & Financial Intelligence
+- **Live URL**: https://fin-sight-ai-chi.vercel.app/
+- **Stack**: Python, FinBERT, Ensemble ML, Next.js, FastAPI
+- **Architecture**:
+  - Multi-factor financial intelligence combining time-series market forecasting with NLP sentiment scoring of market news via FinBERT.
+
+---
+
+## Education & Credentials
+
+- **Degree**: Bachelor of Technology (B.Tech) in Computer Science & Engineering (Specialization: Data Science)
+- **Institution**: JSS Academy of Technical Education, Noida
+- **Timeline**: 2022 → 2026
+- **Performance**: SGPA: 8.3 / 10
+- **High School & Intermediate**: Kendriya Vidyalaya (94.6% in 12th PCM, 94.8% in 10th)
+
+---
+
+## Official Links & Contact
+
+- **Website**: https://akashbuilds.fyi
+- **Email**: akashtripathi.acad@gmail.com
+- **GitHub**: https://github.com/akash1723tripathi
+- **LinkedIn**: https://www.linkedin.com/in/akash-tripathi-b18901263/
+- **LeetCode**: https://leetcode.com/u/_AKASH_TRiPATHi_1723/
+- **Instagram**: https://www.instagram.com/akashh_tripathii/?hl=en
+- **Full LLM Reference**: https://akashbuilds.fyi/llms-full.txt

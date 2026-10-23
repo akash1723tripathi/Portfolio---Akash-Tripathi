@@ -35,8 +35,8 @@ const SPOTLIGHT_SIZE = 80;
 
 export function HeroText() {
   const sectionRef = useRef<HTMLElement>(null);
-  const mohedRef = useRef<HTMLHeadingElement>(null);
-  const abbasRef = useRef<HTMLHeadingElement>(null);
+  const mohedRef = useRef<HTMLDivElement>(null);
+  const abbasRef = useRef<HTMLDivElement>(null);
   const taglineRef = useRef<HTMLDivElement>(null);
   const taglineContainerRef = useRef<HTMLDivElement>(null);
   const taglineHiddenRef = useRef<HTMLParagraphElement>(null);
@@ -308,8 +308,18 @@ export function HeroText() {
 
   return (
     <section ref={sectionRef} className={styles.textAndArm}>
-      {/* MOHED Text */}
-      <h1 ref={mohedRef} data-hero-mohed className={`${styles.heroText} ${styles.heroTextMohed}`}>
+      {/* Semantic Primary Heading for Search Engines & Screen Readers */}
+      <h1 className="sr-only">
+        Akash Tripathi — Full Stack Developer &amp; Systems Engineer
+      </h1>
+
+      {/* AKASH Text (visual animated letters) */}
+      <div
+        ref={mohedRef}
+        data-hero-mohed
+        aria-hidden="true"
+        className={`${styles.heroText} ${styles.heroTextMohed}`}
+      >
         {MOHED_LETTERS.map((letter, index) => {
           const isTarget = index === 0;
 
@@ -338,10 +348,15 @@ export function HeroText() {
             </span>
           );
         })}
-      </h1>
+      </div>
 
-      {/* ABBAS Text */}
-      <h1 ref={abbasRef} data-hero-abbas className={`${styles.heroText} ${styles.heroTextAbbas}`}>
+      {/* TRIPATHI Text (visual animated letters) */}
+      <div
+        ref={abbasRef}
+        data-hero-abbas
+        aria-hidden="true"
+        className={`${styles.heroText} ${styles.heroTextAbbas}`}
+      >
         {LASTNAME_LETTERS_CONFIG.map((item, index) => {
           const isTarget = index === 0;
           const colorClass = item.color === 'purple' ? styles.textPurple : styles.textDark;
@@ -371,7 +386,7 @@ export function HeroText() {
             </span>
           );
         })}
-      </h1>
+      </div>
 
       {/* Tagline with Spotlight Effect */}
       <div
