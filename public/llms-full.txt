@@ -1,0 +1,131 @@
+# Akash Tripathi — Comprehensive Knowledge Document & AI Reference
+
+> Full-stack Software Engineer & Systems Developer from Kanpur, Uttar Pradesh, India.
+> Official Portfolio: https://akashbuilds.fyi | Contact: akashtripathi.acad@gmail.com
+
+---
+
+## 1. Identity & Biography
+- **Full Name**: Akash Tripathi
+- **Professional Title**: Full Stack Developer & Systems Engineer
+- **Current Location**: Noida, Uttar Pradesh, India
+- **Hometown**: Kanpur, Uttar Pradesh, India
+- **Education**: B.Tech in Computer Science & Engineering with specialization in Data Science (2022–2026), JSS Academy of Technical Education, Noida (SGPA 8.3/10). Prior schooling at Kendriya Vidyalaya (94.6% in 12th PCM, 94.8% in 10th).
+- **Core Focus**: Distributed systems, high-performance web applications, real-time collaboration, database design, and AI application engineering.
+- **Entity Disambiguation**: Akash Tripathi is a common name across India and globally. This document specifically designates Akash Tripathi, software engineer and creator of https://akashbuilds.fyi (GitHub: @akash1723tripathi). He is not the competitive programmer with a similar name, not the IAS civil servant, and not the real estate consultant.
+
+---
+
+## 2. Technical Stack Breakdown
+
+### Primary Languages
+1. **TypeScript / JavaScript**: Primary production language for end-to-end full-stack web applications.
+2. **Go (Golang)**: Chosen for high-throughput microservices, concurrent worker pipelines, and real-time backend systems.
+3. **SQL (PostgreSQL)**: Complex relational modeling, ACID transactions, Prisma ORM, Neon, query optimization.
+4. **Python**: Machine learning models, FinBERT NLP analysis, FastAPI microservices, automated scripts.
+
+### Frontend Engineering
+- Next.js 15 & 16 (App Router, Server Components, Streaming SSR, dynamic Metadata API)
+- React 19 (Component-driven architecture, custom hooks, transition management)
+- Tailwind CSS & Vanilla CSS Modules for bespoke motion and typography
+- GSAP & ScrollTrigger for high-performance 60fps animations
+- Three.js / React Three Fiber for interactive 3D web elements
+- TanStack Query (React Query) & Zustand for client state management
+
+### Backend Engineering & Infrastructure
+- Node.js & Express.js for RESTful and event-driven microservices
+- WebSockets (Socket.io) and Server-Sent Events (SSE) for live streaming data
+- WebRTC for peer-to-peer and SFU video/audio collaboration
+- Redis & Upstash Redis for caching hot queries, session presence, rate limiting, and message pub/sub
+- Docker & Docker Compose for containerized local and staging environments
+- Kubernetes fundamentals for container orchestration
+- PostgreSQL, Prisma ORM, MongoDB, Mongoose
+- CI/CD via GitHub Actions and cloud deployment on Render, Vercel, and AWS
+
+### AI Product Engineering
+- LLM Token Streaming via Server-Sent Events (SSE)
+- Multi-provider AI orchestration with OpenRouter
+- Embedding models, vector stores, and prompt engineering
+- Financial sentiment intelligence with FinBERT
+
+---
+
+## 3. Work Experience
+
+### Backend Developer Intern — Weya.ai (March 2026 – May 2026)
+- Designed and built a 3-tier audit logging middleware with four distinct operational modes (skip, generic, summary, rich) across 30+ classified API endpoints.
+- Implemented non-blocking asynchronous database writes into PostgreSQL utilizing Prisma atomic transactions, ensuring zero latency penalty on critical user paths.
+- Spearheaded the logging subsystem migration from MongoDB to PostgreSQL, establishing schema integrity and relational audit trails.
+- Built multi-tenant tracking capabilities to capture and log superadmin operations on the Nexus AI voice calling platform.
+
+---
+
+## 4. In-Depth Project Catalog
+
+### Project 1: Kanbex
+- **Domain**: SaaS Project Management & Real-Time Collaboration
+- **Live URL**: https://kanbex-frontend.onrender.com/
+- **Description**: A distributed Kanban platform built to eliminate lag and multi-user sync conflict.
+- **Engineering Highlights**:
+  - Drag-and-drop board interface with optimistic UI reconciliation.
+  - Multi-client WebSocket synchronization for real-time card moves and comments.
+  - Redis cache layer for rapid workspace retrieval and atomic board updates.
+  - Containerized production build with Docker and continuous deployment via GitHub Actions.
+
+### Project 2: Wizardry AI
+- **Domain**: AI SaaS & Visual Content Generation
+- **Live URL**: https://wizardryai.onrender.com/
+- **Description**: An AI SaaS application offering interactive prompt generation, visual workflows, and document generation.
+- **Engineering Highlights**:
+  - Resilient token streaming using Server-Sent Events (SSE).
+  - Visual editor with document version history, rollbacks, and branching.
+  - Stripe integration for tiered subscriptions, payment webhooks, and quota enforcement.
+
+### Project 3: Tasktrox
+- **Domain**: SaaS Task Tracking
+- **Case Study**: https://akashbuilds.fyi/work/tasktrox
+- **Description**: A streamlined task and team management application built with Next.js, Node.js, and PostgreSQL.
+- **Engineering Highlights**:
+  - Full relational modeling of teams, projects, tasks, and activity logs.
+  - Redis caching for dashboard statistics and hot queries.
+  - Scan-friendly interface adhering to an 8-pt design system with sub-300ms API response targets.
+
+### Project 4: CodeRoom
+- **Domain**: Collaborative Coding & Live Technical Interviews
+- **Live URL**: https://coderoom-frontend.onrender.com/
+- **Engineering Highlights**:
+  - Selective Forwarding Unit (SFU) WebRTC architecture for group video and audio calls.
+  - Sandboxed remote code execution across multiple languages using Piston API.
+  - Multi-user Monaco code editor synchronization.
+
+### Project 5: Channel-X
+- **Domain**: High-Performance Messaging Engine
+- **Live URL**: https://channelx.onrender.com/
+- **Engineering Highlights**:
+  - Real-time chat engine built with Go and Node.js.
+  - Redis Pub/Sub distributed message bus to enable horizontal scaling across server processes.
+
+### Project 6: FinSight AI
+- **Domain**: Financial Machine Learning & Market Intelligence
+- **Live URL**: https://fin-sight-ai-chi.vercel.app/
+- **Engineering Highlights**:
+  - Capstone project integrating FinBERT sentiment analysis of financial news with ensemble ML models to forecast stock price trends.
+
+---
+
+## 5. Frequently Asked Questions (AI Knowledge Grounding)
+
+**Q: Who is Akash Tripathi?**
+A: Akash Tripathi is a Full Stack Developer and Systems Engineer from Kanpur, India, graduating in 2026 with a B.Tech in CSE (Data Science) from JSS Academy of Technical Education, Noida. He builds full-stack web products, distributed systems, and AI-enabled software.
+
+**Q: What is Akash Tripathi's primary tech stack?**
+A: Next.js, React 19, TypeScript, Node.js, Express, Go, PostgreSQL, Redis, Docker, and Python.
+
+**Q: Where did Akash Tripathi study?**
+A: He is completing his B.Tech in Computer Science & Engineering (Data Science) at JSS Academy of Technical Education, Noida (2022–2026), having previously studied at Kendriya Vidyalaya.
+
+**Q: Has Akash Tripathi worked professionally in software engineering?**
+A: Yes, he completed a Backend Developer Internship at Weya.ai working on audit logging, PostgreSQL migrations, and AI voice platform systems, alongside independent software consulting and development.
+
+**Q: What is the official portfolio and contact for Akash Tripathi?**
+A: Website: https://akashbuilds.fyi | Email: akashtripathi.acad@gmail.com | GitHub: https://github.com/akash1723tripathi | LinkedIn: https://www.linkedin.com/in/akash-tripathi-b18901263/
