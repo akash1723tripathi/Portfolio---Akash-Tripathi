@@ -44,6 +44,9 @@ export const metadata: Metadata = {
   creator: siteMetadata.author,
   publisher: siteMetadata.author,
   alternates: { canonical: "/" },
+  other: {
+    "darkreader-lock": "",
+  },
   robots: {
     index: true,
     follow: true,
@@ -135,7 +138,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${doppioOne.variable} ${inter.variable}`}>
+      <body className={`${doppioOne.variable} ${inter.variable}`} suppressHydrationWarning>
         {/* See BOOTSTRAP_SCRIPT above — pre-paint theme + scroll-restoration bootstrap. */}
         <script
           dangerouslySetInnerHTML={{
