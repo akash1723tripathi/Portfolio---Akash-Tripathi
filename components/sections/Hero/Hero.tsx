@@ -269,7 +269,7 @@ export function Hero() {
 
   return (
     <>
-      <main ref={heroRef} className={styles.hero}>
+      <header ref={heroRef} className={styles.hero} aria-label="Hero Introduction">
         <HeroText />
         <SkillsBar />
 
@@ -280,7 +280,7 @@ export function Hero() {
         <span ref={flyingARef} className={styles.flyingLetter} aria-hidden="true">
           {INITIALS.last}
         </span>
-      </main>
+      </header>
 
       {/* Scroll spacer: provides document flow height for the fixed hero + animation range */}
       <div ref={spacerRef} className={styles.heroScrollSpacer} />
