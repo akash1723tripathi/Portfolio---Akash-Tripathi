@@ -76,7 +76,7 @@ export const ChainOfThoughtTrigger: React.FC<ChainOfThoughtTriggerProps> = ({
 
   if (!stepContext) return null;
 
-  const { stepId, isOpen, isActive } = stepContext;
+  const { stepId, isOpen } = stepContext;
 
   const handleClick = () => {
     if (cotContext) {

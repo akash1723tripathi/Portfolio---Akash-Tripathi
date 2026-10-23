@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import {
   PromptInput,
   PromptInputAction,
@@ -404,14 +405,18 @@ export const OllieChatbot: React.FC = () => {
           onClick={toggleOpen}
           aria-label="Open Ollie AI Assistant"
         >
-          <img
+          <Image
             src="/assets/hello-kitty/Firefly_RemoveBackground.png"
             alt="Ollie AI Assistant"
+            width={240}
+            height={330}
             className={`${styles.avatarOverlay} ${styles.lightAvatar}`}
           />
-          <img
+          <Image
             src="/assets/hello-kitty/Firefly_RemoveBackground.png"
             alt="Ollie AI Assistant"
+            width={240}
+            height={330}
             className={`${styles.avatarOverlay} ${styles.darkAvatar}`}
           />
           <span className={styles.badgeTooltip}>Ask Ollie</span>
@@ -430,9 +435,11 @@ export const OllieChatbot: React.FC = () => {
         <div className={styles.header}>
           <div className={styles.headerInfo}>
             <div className={styles.headerAvatarWrapper}>
-              <img
+              <Image
                 src="/assets/hello-kitty/chat-face.jpg"
                 alt="Ollie"
+                width={40}
+                height={40}
                 className={styles.headerAvatar}
               />
             </div>
@@ -476,9 +483,11 @@ export const OllieChatbot: React.FC = () => {
               {/* Chain of Thought: rendered OUTSIDE the bubble, directly in message flow */}
               {msg.role === 'assistant' && msg.isThinking && !msg.content && msg.thoughtSteps && (
                 <div className={styles.cotThinkingRow}>
-                  <img
+                  <Image
                     src="/assets/hello-kitty/chat-face.jpg"
                     alt="Ollie Avatar"
+                    width={28}
+                    height={28}
                     className={styles.smallAvatar}
                   />
                   <div className={styles.cotThinkingContainer}>
@@ -511,9 +520,11 @@ export const OllieChatbot: React.FC = () => {
                     }`}
                 >
                   {msg.role === 'assistant' && (
-                    <img
+                    <Image
                       src="/assets/hello-kitty/chat-face.jpg"
                       alt="Ollie Avatar"
+                      width={28}
+                      height={28}
                       className={styles.smallAvatar}
                     />
                   )}
